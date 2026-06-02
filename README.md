@@ -92,6 +92,10 @@ npm run dev
 3. **Vérifier le chemin de destination** dans `.github/workflows/deploy.yml`
    (`server-dir: ./www/` par défaut, à ajuster selon votre OVH).
 
+4. **Si le serveur refuse FTPS avec `500 This security scheme is not implemented`**,
+   laisser `protocol: ftp` dans le workflow. L'action `SamKirkland/FTP-Deploy-Action`
+   ne gère pas SFTP.
+
 ### Déploiement automatique
 
 Tout push sur `main` déclenche le build et le déploiement automatique.
@@ -102,7 +106,7 @@ Tout push sur `main` déclenche le build et le déploiement automatique.
 # Build local
 npm run build
 
-# Upload manuel via FTP client (FileZilla, Cyberduck) du contenu de dist/ vers /www/
+# Upload manuel via un client FTP/SFTP (FileZilla, Cyberduck) du contenu de dist/ vers /www/
 ```
 
 ## 📋 Étapes suivantes (TODO)
