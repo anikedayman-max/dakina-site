@@ -12,7 +12,18 @@ const base = locale === 'en' ? '' : '/fr';
 
 <section class="hero">
   <div class="hero-glow"></div>
+  <div class="hero-orb hero-orb-a"></div>
+  <div class="hero-orb hero-orb-b"></div>
+  <div class="hero-grid"></div>
   <div class="container hero-inner">
+    <div class="hero-brand">
+      <img src="/logo.png" alt="Dakina Consulting" class="hero-logo" />
+      <div class="hero-brand-copy">
+        <span class="hero-brand-name">DAKINA</span>
+        <span class="hero-brand-subtitle">Consulting</span>
+      </div>
+    </div>
+
     <div class="hero-pills">
       {t.hero.pills.map((pill) => (
         <span class="hero-pill">{pill}</span>
@@ -39,20 +50,108 @@ const base = locale === 'en' ? '' : '/fr';
 
   .hero-glow {
     position: absolute;
-    top: -200px;
+    top: -220px;
     left: 50%;
     transform: translateX(-50%);
-    width: 800px;
-    height: 800px;
-    background: radial-gradient(circle, var(--cyan-glow) 0%, transparent 60%);
+    width: 920px;
+    height: 920px;
+    background:
+      radial-gradient(circle at center, rgba(0, 212, 255, 0.22) 0%, rgba(0, 212, 255, 0.08) 24%, transparent 62%),
+      radial-gradient(circle at 30% 35%, rgba(26, 107, 255, 0.18), transparent 42%);
+    filter: blur(10px);
     pointer-events: none;
     z-index: 0;
+    animation: glowPulse 12s ease-in-out infinite alternate;
+  }
+
+  .hero-orb {
+    position: absolute;
+    border-radius: 999px;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(2px);
+    mix-blend-mode: screen;
+  }
+
+  .hero-orb-a {
+    top: 8%;
+    left: 8%;
+    width: 180px;
+    height: 180px;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.42) 0%, rgba(0, 212, 255, 0.08) 45%, transparent 72%);
+    animation: floatOrbA 18s ease-in-out infinite alternate;
+  }
+
+  .hero-orb-b {
+    right: 10%;
+    bottom: 8%;
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(77, 143, 255, 0.32) 0%, rgba(77, 143, 255, 0.08) 42%, transparent 74%);
+    animation: floatOrbB 22s ease-in-out infinite alternate;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.18;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 90px 90px;
+    mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.95), transparent 76%);
+    animation: gridDrift 28s linear infinite;
   }
 
   .hero-inner {
     position: relative;
     z-index: 1;
     text-align: center;
+  }
+
+  .hero-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 20px;
+    margin-bottom: var(--space-8);
+    border-radius: 999px;
+    background: rgba(7, 24, 40, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(14px);
+  }
+
+  .hero-logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 18px 40px rgba(0, 212, 255, 0.12);
+  }
+
+  .hero-brand-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1;
+  }
+
+  .hero-brand-name {
+    font-family: var(--font-head);
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--white);
+  }
+
+  .hero-brand-subtitle {
+    margin-top: 4px;
+    font-size: 0.78rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gray-300);
   }
 
   .hero-pills {
@@ -95,5 +194,43 @@ const base = locale === 'en' ? '' : '/fr';
     justify-content: center;
     gap: var(--space-4);
     flex-wrap: wrap;
+  }
+
+  @keyframes glowPulse {
+    from {
+      transform: translateX(-50%) scale(0.98);
+      opacity: 0.92;
+    }
+    to {
+      transform: translateX(-50%) scale(1.04);
+      opacity: 1;
+    }
+  }
+
+  @keyframes floatOrbA {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(18px, 22px, 0);
+    }
+  }
+
+  @keyframes floatOrbB {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-24px, -18px, 0);
+    }
+  }
+
+  @keyframes gridDrift {
+    from {
+      background-position: 0 0, 0 0;
+    }
+    to {
+      background-position: 90px 90px, -90px 90px;
+    }
   }
 </style>
