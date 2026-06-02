@@ -1,0 +1,82 @@
+---
+import '../styles/global.css';
+import { getTranslations, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+  title?: string;
+  description?: string;
+  pathname?: string;
+}
+
+const { locale, title, description, pathname = '' } = Astro.props;
+const t = getTranslations(locale);
+
+const pageTitle = title
+  ? `${title} | ${t.site.name}`
+  : `${t.site.name} — ${t.site.tagline}`;
+const pageDescription = description || t.site.description;
+const canonical = `https://dakina-consulting.fr${pathname}`;
+const ogImage = '/og-image.png';
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+
+    <!-- OpenGraph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`https://dakina-consulting.fr${ogImage}`} />
+    <meta property="og:locale" content={locale === 'fr' ? 'fr_FR' : 'en_US'} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={`https://dakina-consulting.fr${ogImage}`} />
+
+    <!-- JSON-LD Organization Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Organization',
+      name: t.site.name,
+      url: 'https://dakina-consulting.fr',
+      logo: 'https://dakina-consulting.fr/logo.png',
+      description: t.site.description,
+      email: 'contact@dakina-consulting.fr',
+      address: {
+        '@type': 'PostalAddress',
+        addressCountry: 'FR'
+      },
+      areaServed: ['FR', 'SA', 'AE', 'MA'],
+      sameAs: ['https://www.linkedin.com/company/dakina']
+    })} />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Sitemap link -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,46 @@
+---
+interface Props {
+  href: string;
+  icon: string;
+  title: string;
+  description: string;
+  tags?: string[];
+  learnMoreLabel?: string;
+}
+
+const { href, icon, title, description, tags = [], learnMoreLabel = 'Learn more' } = Astro.props;
+---
+
+<a href={href} class="service-card card">
+  <span class="card-icon">{icon}</span>
+  <h3 class="card-title">{title}</h3>
+  <p class="card-description">{description}</p>
+  {tags.length > 0 && (
+    <div class="card-tags">
+      {tags.map((tag) => <span class="tag">{tag}</span>)}
+    </div>
+  )}
+  <span class="card-link">{learnMoreLabel} →</span>
+</a>
+
+<style>
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+  }
+
+  .service-card .card-link {
+    margin-top: auto;
+    padding-top: var(--space-6);
+    color: var(--cyan);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+
+  .service-card:hover .card-link {
+    color: var(--white);
+  }
+</style>

@@ -1,0 +1,207 @@
+---
+import { getTranslations, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+const base = locale === 'en' ? '' : '/fr';
+
+const servicesLinks = t.services.items.map((s) => ({
+  href: `${base}/services/${s.slug}`,
+  label: s.title,
+}));
+
+const industriesLinks = t.industries.items.map((i) => ({
+  href: `${base}/industries/${i.slug}`,
+  label: i.title,
+}));
+
+const companyLinks = [
+  { href: `${base}/about`, label: t.nav.about },
+  { href: `${base}/case-studies`, label: t.nav.caseStudies },
+  { href: `${base}/blog`, label: t.nav.blog },
+  { href: `${base}/contact`, label: t.nav.contact },
+];
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href={base || '/'} class="logo-link">
+          <img src="/logo.png" alt="Dakina" class="footer-logo" />
+          <span class="footer-name">DAKINA<span class="footer-name-light">Consulting</span></span>
+        </a>
+        <p class="footer-description">{t.footer.description}</p>
+        <a href="https://www.linkedin.com/company/dakina" target="_blank" rel="noopener" class="footer-social">
+          → LinkedIn
+        </a>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">{t.footer.sections.services}</h4>
+        <ul>
+          {servicesLinks.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">{t.footer.sections.industries}</h4>
+        <ul>
+          {industriesLinks.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">{t.footer.sections.company}</h4>
+        <ul>
+          {companyLinks.map((link) => (
+            <li><a href={link.href}>{link.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">{t.footer.copyright}</p>
+      <ul class="legal-links">
+        <li><a href={`${base}/legal`}>{t.footer.legalLinks.legal}</a></li>
+        <li><a href={`${base}/privacy`}>{t.footer.legalLinks.privacy}</a></li>
+        <li><a href={`${base}/cookies`}>{t.footer.legalLinks.cookies}</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--navy-mid);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: var(--space-16) 0 var(--space-8);
+    margin-top: var(--space-24);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--space-12);
+    margin-bottom: var(--space-12);
+  }
+
+  .footer-brand .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: var(--space-4);
+  }
+
+  .footer-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+
+  .footer-name {
+    font-family: var(--font-head);
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--white);
+  }
+
+  .footer-name-light {
+    font-weight: 400;
+    color: var(--gray-300);
+    margin-left: 4px;
+  }
+
+  .footer-description {
+    color: var(--gray-300);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 380px;
+    margin-bottom: var(--space-4);
+  }
+
+  .footer-social {
+    display: inline-block;
+    color: var(--cyan);
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .footer-heading {
+    font-family: var(--font-head);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gray-400);
+    margin-bottom: var(--space-4);
+    font-weight: 600;
+  }
+
+  .footer-col ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .footer-col a {
+    color: var(--gray-200);
+    font-size: 0.9rem;
+  }
+
+  .footer-col a:hover {
+    color: var(--cyan);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: var(--space-6);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .copyright {
+    color: var(--gray-400);
+    font-size: 0.85rem;
+  }
+
+  .legal-links {
+    display: flex;
+    gap: var(--space-6);
+  }
+
+  .legal-links a {
+    color: var(--gray-400);
+    font-size: 0.85rem;
+  }
+
+  .legal-links a:hover {
+    color: var(--cyan);
+  }
+
+  @media (max-width: 900px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+    .footer-bottom {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

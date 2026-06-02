@@ -1,0 +1,48 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import ServiceCard from '../../../components/ServiceCard.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { getTranslations } from '../../../i18n/utils';
+
+const locale = 'fr';
+const t = getTranslations(locale);
+---
+
+<PageLayout locale={locale} title={t.nav.services} description={t.services.subtitle}>
+  <section class="section page-header">
+    <div class="container">
+      <span class="section-label">{t.services.label}</span>
+      <h1>{t.services.title}</h1>
+      <p class="section-subtitle">{t.services.subtitle}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-3">
+        {t.services.items.map((service) => (
+          <ServiceCard
+            href={`/fr/services/${service.slug}`}
+            icon={service.icon}
+            title={service.title}
+            description={service.shortDescription}
+            tags={service.tags}
+            learnMoreLabel={t.common.learnMore}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CTASection locale={locale} />
+</PageLayout>
+
+<style>
+  .page-header {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-8);
+  }
+  .page-header h1 {
+    margin-bottom: var(--space-4);
+  }
+</style>

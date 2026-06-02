@@ -1,0 +1,60 @@
+# .htaccess pour OVH Web mutualisé
+# Sert le site Astro statique avec les bonnes règles de routing, cache et sécurité.
+
+# ================================================================
+# REWRITE — gère les URLs sans extension .html
+# ================================================================
+RewriteEngine On
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Force www → non-www (ou l'inverse selon votre choix, ici non-www)
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+# Si l'URL ne se termine pas par / ou par une extension, essayer d'ajouter /index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /$1/index.html [L]
+
+# Redirige les anciennes ancres du one-page vers les nouvelles pages (ajuster au besoin)
+# RewriteRule ^index\.html#services$ /services/ [R=301,L]
+
+# ================================================================
+# CACHE — performance
+# ================================================================
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 month"
+  ExpiresByType text/html "access plus 1 hour"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# Compression GZIP
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
+</IfModule>
+
+# ================================================================
+# SECURITY HEADERS
+# ================================================================
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+  # CSP minimal — à durcir selon vos besoins
+  Header set Content-Security-Policy "default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; script-src 'self' 'unsafe-inline';"
+</IfModule>
+
+# Pages d'erreur
+ErrorDocument 404 /404.html

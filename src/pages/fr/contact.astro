@@ -1,0 +1,155 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { getTranslations } from '../../i18n/utils';
+
+const locale = 'fr';
+const t = getTranslations(locale);
+---
+
+<PageLayout locale={locale} title={t.nav.contact} description={t.contact.subtitle}>
+  <section class="section page-header">
+    <div class="container">
+      <span class="section-label">{t.nav.contact}</span>
+      <h1>{t.contact.title}</h1>
+      <p class="section-subtitle">{t.contact.subtitle}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="info-item">
+            <span class="info-label">Email</span>
+            <a href={`mailto:${t.contact.info.email}`} class="info-value">{t.contact.info.email}</a>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Site web</span>
+            <span class="info-value">{t.contact.info.website}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Localisation</span>
+            <span class="info-value">{t.contact.info.location}</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Délai de réponse</span>
+            <span class="info-value">{t.contact.info.responseTime}</span>
+          </div>
+
+          <a href="https://www.linkedin.com/company/dakina" target="_blank" rel="noopener" class="linkedin-link">
+            → Suivre Dakina sur LinkedIn
+          </a>
+        </div>
+
+        <form class="contact-form card" id="contact-form-fr">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="firstName">{t.contact.form.firstName} *</label>
+              <input class="form-input" type="text" id="firstName" name="firstName" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="lastName">{t.contact.form.lastName} *</label>
+              <input class="form-input" type="text" id="lastName" name="lastName" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="email">{t.contact.form.email} *</label>
+            <input class="form-input" type="email" id="email" name="email" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="company">{t.contact.form.company}</label>
+              <input class="form-input" type="text" id="company" name="company" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="role">{t.contact.form.role}</label>
+              <input class="form-input" type="text" id="role" name="role" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="subject">{t.contact.form.subject} *</label>
+            <select class="form-select" id="subject" name="subject" required>
+              <option value="">—</option>
+              {t.contact.form.subjectOptions.map((opt) => <option value={opt}>{opt}</option>)}
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="message">{t.contact.form.message} *</label>
+            <textarea class="form-textarea" id="message" name="message" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary form-submit">
+            {t.contact.form.submit} →
+          </button>
+
+          <p class="form-privacy">{t.contact.form.privacy}</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</PageLayout>
+
+<style>
+  .page-header { padding-top: var(--space-16); padding-bottom: var(--space-8); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: var(--space-12);
+  }
+  .info-item {
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  .info-label {
+    display: block;
+    color: var(--gray-400);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-2);
+  }
+  .info-value {
+    color: var(--white);
+    font-size: 1rem;
+  }
+  a.info-value:hover { color: var(--cyan); }
+  .linkedin-link {
+    display: inline-block;
+    margin-top: var(--space-8);
+    color: var(--cyan);
+    font-weight: 500;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+  .form-submit {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 32px;
+    margin-top: var(--space-2);
+  }
+  .form-privacy {
+    margin-top: var(--space-4);
+    font-size: 0.8rem;
+    color: var(--gray-400);
+    text-align: center;
+  }
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form-fr') as HTMLFormElement | null;
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Formulaire envoyé — à brancher sur un vrai backend en production.');
+  });
+</script>

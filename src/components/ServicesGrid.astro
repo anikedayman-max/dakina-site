@@ -1,0 +1,55 @@
+---
+import { getTranslations, type Locale } from '../i18n/utils';
+import ServiceCard from './ServiceCard.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+const base = locale === 'en' ? '' : '/fr';
+---
+
+<section class="section services-section">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="section-label">{t.services.label}</span>
+        <h2 class="section-title">{t.services.title}</h2>
+        <p class="section-subtitle">{t.services.subtitle}</p>
+      </div>
+      <a href={`${base}/services`} class="btn btn-ghost view-all-link">
+        {t.services.viewAll} →
+      </a>
+    </div>
+
+    <div class="grid grid-3">
+      {t.services.items.map((service) => (
+        <ServiceCard
+          href={`${base}/services/${service.slug}`}
+          icon={service.icon}
+          title={service.title}
+          description={service.shortDescription}
+          tags={service.tags}
+          learnMoreLabel={t.common.learnMore}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+    margin-bottom: var(--space-12);
+  }
+
+  .view-all-link {
+    flex-shrink: 0;
+  }
+</style>

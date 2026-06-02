@@ -1,0 +1,45 @@
+---
+import { getTranslations, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+---
+
+<section class="section approach-section">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label">{t.approach.label}</span>
+      <h2 class="section-title">{t.approach.title}</h2>
+      <p class="section-subtitle" style="margin-left: auto; margin-right: auto;">{t.approach.subtitle}</p>
+    </div>
+
+    <div class="grid grid-3 approach-grid">
+      {t.approach.steps.map((step) => (
+        <div class="approach-card card">
+          <div class="approach-number">{step.number}</div>
+          <h4 class="card-title">{step.title}</h4>
+          <p class="card-description">{step.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .approach-grid {
+    margin-top: var(--space-12);
+  }
+
+  .approach-number {
+    font-family: var(--font-head);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--cyan);
+    margin-bottom: var(--space-3);
+    letter-spacing: -0.02em;
+  }
+</style>

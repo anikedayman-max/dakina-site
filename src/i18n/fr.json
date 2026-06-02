@@ -1,0 +1,224 @@
+{
+  "site": {
+    "name": "Dakina Consulting",
+    "tagline": "Azure, IA & Industrialisation IaC",
+    "description": "Cabinet de conseil senior en cloud et ingénierie IA. Architecture Azure, livraison AI-native, industrialisation IaC. Basé en France, intervient en France et au MENA — Arabie Saoudite, Émirats, Maroc."
+  },
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "industries": "Secteurs",
+    "caseStudies": "Études de cas",
+    "about": "À propos",
+    "blog": "Insights",
+    "contact": "Contact",
+    "bookCall": "Prendre RDV"
+  },
+  "hero": {
+    "label": "Cloud · IA · IaC",
+    "title": "Construire une infrastructure cloud qui tient vraiment.",
+    "subtitle": "Dakina est un cabinet de conseil senior en cloud et ingénierie IA. Nous travaillons sur ce qui est difficile : architectures Azure qui survivent en production, IaC que vos équipes maintiennent, agents IA qui livrent de la valeur au-delà de la démo.",
+    "primaryCta": "Discutons de votre projet",
+    "secondaryCta": "Découvrir nos services",
+    "pills": ["Microsoft Azure", "Ingénierie IA", "Infrastructure as Code", "DevSecOps"]
+  },
+  "valueProps": {
+    "title": "Ce qui nous distingue",
+    "subtitle": "Deux principes structurent notre manière de livrer.",
+    "items": [
+      {
+        "title": "Expertise senior, de bout en bout",
+        "description": "Pas d'équipes empilées. Pas de juniors en sous-marin. La personne qui cadre la mission est celle qui la livre."
+      },
+      {
+        "title": "Livraison AI-native",
+        "description": "Claude et l'outillage agentique font partie de notre manière de générer des modules IaC, relire le code et produire la documentation. C'est notre mode de fonctionnement, pas une ligne de service."
+      },
+      {
+        "title": "Couverture France et MENA",
+        "description": "Présents en France, au Maroc, en Arabie Saoudite et aux Émirats. Équipe arabophone. Pratiques adaptées au contexte régional sur demande."
+      },
+      {
+        "title": "Transfert de compétences systématique",
+        "description": "Nous ne créons pas de dépendances. Chaque mission inclut pair programming, documentation et montée en compétences pour rendre vos équipes autonomes."
+      }
+    ]
+  },
+  "services": {
+    "label": "Nos services",
+    "title": "Des services pensés pour ce que la production exige vraiment",
+    "subtitle": "De la stratégie aux opérations, Dakina intervient sur l'ensemble du cycle de vie de vos projets cloud, sécurité et IA.",
+    "viewAll": "Voir tous les services",
+    "items": [
+      {
+        "slug": "azure-architecture",
+        "icon": "☁️",
+        "title": "Architecture Azure",
+        "shortDescription": "Landing zones, réseau Hub-Spoke, gouvernance multi-souscriptions. Des designs qui survivent à 18 mois de croissance organique.",
+        "tags": ["Landing Zone", "CAF / ALZ", "Hub & Spoke"]
+      },
+      {
+        "slug": "ai-engineering",
+        "icon": "🤖",
+        "title": "Ingénierie IA",
+        "shortDescription": "Claude Code en entreprise, AI gateways, workflows agentiques, pipelines RAG. De l'IA en production, pas des démos.",
+        "tags": ["Claude", "Anthropic", "RAG", "Agents"]
+      },
+      {
+        "slug": "iac-industrialization",
+        "icon": "⚙️",
+        "title": "Industrialisation IaC",
+        "shortDescription": "Terraform et Bicep à grande échelle. Bibliothèques de modules, standardisation des pipelines, génération et review augmentées par l'IA.",
+        "tags": ["Terraform", "Bicep", "GitOps"]
+      },
+      {
+        "slug": "devsecops",
+        "icon": "🔄",
+        "title": "DevSecOps & CI/CD",
+        "shortDescription": "Pipelines Azure DevOps et GitHub Actions. Shift-left security, gestion des secrets, protection de la supply chain.",
+        "tags": ["Azure DevOps", "GitHub Actions", "Shift-Left"]
+      },
+      {
+        "slug": "cloud-security",
+        "icon": "🔐",
+        "title": "Sécurité Cloud",
+        "shortDescription": "Architectures Zero Trust, Microsoft Defender for Cloud, durcissement Entra ID, conformité NIS2 et ISO 27001.",
+        "tags": ["Zero Trust", "Defender", "Entra ID"]
+      },
+      {
+        "slug": "governance-finops",
+        "icon": "📊",
+        "title": "Gouvernance & FinOps",
+        "shortDescription": "Azure Policy, RBAC à l'échelle, stratégies de tagging, optimisation des coûts. Une gouvernance qui ne ralentit pas la livraison.",
+        "tags": ["Azure Policy", "RBAC", "FinOps"]
+      }
+    ]
+  },
+  "industries": {
+    "label": "Secteurs",
+    "title": "Une expertise sectorielle qui compte",
+    "subtitle": "Chaque secteur a ses contraintes réglementaires, techniques et culturelles. Nous nous adaptons.",
+    "viewAll": "Voir tous les secteurs",
+    "items": [
+      {
+        "slug": "finance",
+        "icon": "🏦",
+        "title": "Finance & Banque",
+        "description": "Workloads régulés, conformité DORA et PCI, cloud souverain, IAM avancé."
+      },
+      {
+        "slug": "energy",
+        "icon": "⚡",
+        "title": "Énergie & Utilities",
+        "description": "Infrastructures résilientes, sécurité opérationnelle, conformité NIS2, convergence OT/IT."
+      },
+      {
+        "slug": "public-sector",
+        "icon": "🏛️",
+        "title": "Secteur Public",
+        "description": "Hébergement souverain, résidence des données, alignement ANSSI, conformité accessibilité."
+      },
+      {
+        "slug": "healthcare",
+        "icon": "🏥",
+        "title": "Santé",
+        "description": "Hébergement HDS, interopérabilité, protection des données patients, IA régulée."
+      }
+    ]
+  },
+  "approach": {
+    "label": "Notre approche",
+    "title": "Une méthode structurée, adaptée à votre réalité",
+    "subtitle": "De l'analyse initiale à l'amélioration continue, un cadre rigoureux qui s'adapte à votre contexte — pas l'inverse.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Cadrage",
+        "description": "Audit de l'existant, cartographie des enjeux métiers, identification des contraintes. Définition des objectifs et du périmètre."
+      },
+      {
+        "number": "02",
+        "title": "Architecture",
+        "description": "Design cible, choix technologiques justifiés, standards de sécurité et de gouvernance. Validation collaborative."
+      },
+      {
+        "number": "03",
+        "title": "Implémentation",
+        "description": "Déploiement itératif, infrastructure as code, intégration continue, tests de sécurité automatisés dès le départ."
+      },
+      {
+        "number": "04",
+        "title": "Durcissement",
+        "description": "Pratiques DevSecOps, scan de vulnérabilités, hardening de configuration, gestion des accès et des secrets."
+      },
+      {
+        "number": "05",
+        "title": "Industrialisation",
+        "description": "Pipelines CI/CD production-ready, documentation opérationnelle, runbooks, alerting et monitoring complets."
+      },
+      {
+        "number": "06",
+        "title": "Transfert",
+        "description": "Formation des équipes, pair programming, documentation technique. Votre équipe reprend la main sereinement."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Prêt à discuter de votre projet ?",
+    "subtitle": "Un premier échange pour comprendre vos enjeux. Sans engagement, sans jargon inutile.",
+    "button": "Démarrer une conversation"
+  },
+  "contact": {
+    "title": "Parlons de votre projet",
+    "subtitle": "Projet cloud, question d'architecture, revue de sécurité, ou exploration de l'IA pour vos processus ? Décrivez-nous votre contexte — nous répondons sous 24 heures ouvrées.",
+    "form": {
+      "firstName": "Prénom",
+      "lastName": "Nom",
+      "email": "Email professionnel",
+      "company": "Entreprise",
+      "role": "Votre poste",
+      "subject": "Sujet",
+      "subjectOptions": [
+        "Architecture Cloud / Migration Azure",
+        "Ingénierie IA",
+        "DevSecOps & Automatisation",
+        "Sécurité Cloud",
+        "Gouvernance & FinOps",
+        "Conseil Stratégique IT",
+        "Autre"
+      ],
+      "message": "Décrivez votre projet",
+      "submit": "Envoyer",
+      "privacy": "Vos données sont strictement confidentielles et ne seront jamais partagées avec des tiers.",
+      "success": "Merci pour votre message. Nous vous répondrons sous 24 heures ouvrées."
+    },
+    "info": {
+      "email": "contact@dakina-consulting.fr",
+      "website": "www.dakina-consulting.fr",
+      "location": "France — interventions France & MENA",
+      "responseTime": "Sous 24h ouvrées"
+    }
+  },
+  "footer": {
+    "description": "Cabinet de conseil senior spécialisé en cloud Azure, ingénierie IA, industrialisation IaC et sécurité cloud. Couverture France et MENA.",
+    "sections": {
+      "services": "Services",
+      "industries": "Secteurs",
+      "company": "Entreprise",
+      "legal": "Mentions légales"
+    },
+    "legalLinks": {
+      "legal": "Mentions légales",
+      "privacy": "Confidentialité",
+      "cookies": "Cookies"
+    },
+    "copyright": "© 2026 Dakina Consulting · France"
+  },
+  "common": {
+    "learnMore": "En savoir plus",
+    "readMore": "Lire la suite",
+    "back": "Retour",
+    "loading": "Chargement...",
+    "language": "Langue"
+  }
+}

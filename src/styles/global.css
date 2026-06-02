@@ -1,0 +1,442 @@
+/* ============================================================
+   DESIGN TOKENS — repris du site Dakina v1, étendus
+============================================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Brand colors */
+  --navy: #04101f;
+  --navy-mid: #071828;
+  --navy-card: #0a2038;
+  --navy-elevated: #0d2645;
+  --blue: #1a6bff;
+  --blue-light: #4d8fff;
+  --cyan: #00d4ff;
+  --cyan-glow: rgba(0, 212, 255, 0.18);
+  --teal: #00c8a0;
+  --green-dot: #4dca82;
+
+  /* Neutrals */
+  --white: #ffffff;
+  --off-white: #eef3fb;
+  --gray-100: #e6ecf5;
+  --gray-200: #c8d6f0;
+  --gray-300: #a8b8d5;
+  --gray-400: #7a90b8;
+  --gray-500: #5a7090;
+  --gray-600: #3c5070;
+  --gray-700: #243752;
+
+  /* Semantic */
+  --success: #00c47a;
+  --warning: #ffb84d;
+  --danger: #ff5470;
+
+  /* Typography */
+  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-head: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+
+  /* Spacing scale (4px base) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+
+  /* Transitions */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --tr: 0.3s var(--ease);
+  --tr-fast: 0.15s var(--ease);
+
+  /* Layout */
+  --container-max: 1200px;
+  --container-padding: 28px;
+
+  /* Z-index */
+  --z-nav: 100;
+  --z-modal: 200;
+}
+
+/* ============================================================
+   BASE
+============================================================ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--navy);
+  color: var(--white);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--tr-fast);
+}
+
+a:hover {
+  color: var(--cyan);
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+============================================================ */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-head);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+/* ============================================================
+   LAYOUT HELPERS
+============================================================ */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.section {
+  padding: var(--space-24) 0;
+}
+
+.section-sm {
+  padding: var(--space-16) 0;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: var(--space-4);
+}
+
+.section-label::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--cyan);
+  border-radius: 2px;
+}
+
+.section-title {
+  margin-bottom: var(--space-4);
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: var(--gray-200);
+  max-width: 720px;
+  margin-bottom: var(--space-12);
+}
+
+/* ============================================================
+   BUTTONS
+============================================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 14px 28px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all var(--tr);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--blue) 0%, var(--cyan) 100%);
+  color: var(--white);
+  box-shadow: 0 4px 20px rgba(26, 107, 255, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 30px rgba(26, 107, 255, 0.45);
+  color: var(--white);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  background: var(--cyan-glow);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--gray-200);
+  padding: 10px 16px;
+}
+
+.btn-ghost:hover {
+  color: var(--cyan);
+}
+
+/* ============================================================
+   CARDS
+============================================================ */
+.card {
+  background: var(--navy-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  transition: all var(--tr);
+}
+
+.card:hover {
+  border-color: var(--cyan-glow);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.card-icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-4);
+  display: block;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-3);
+  color: var(--white);
+}
+
+.card-description {
+  color: var(--gray-200);
+  font-size: 0.95rem;
+  margin-bottom: var(--space-4);
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.tag {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: rgba(0, 212, 255, 0.08);
+  color: var(--cyan);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+/* ============================================================
+   GRID HELPERS
+============================================================ */
+.grid {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 900px) {
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================================
+   UTILITIES
+============================================================ */
+.text-center {
+  text-align: center;
+}
+
+.text-cyan {
+  color: var(--cyan);
+}
+
+.text-gray {
+  color: var(--gray-200);
+}
+
+.glow {
+  position: relative;
+}
+
+.glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, var(--cyan), transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ============================================================
+   FORMS
+============================================================ */
+.form-group {
+  margin-bottom: var(--space-5);
+}
+
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-200);
+  margin-bottom: var(--space-2);
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: var(--navy-mid);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  color: var(--white);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: border-color var(--tr-fast);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--cyan);
+}
+
+.form-textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* ============================================================
+   ACCESSIBILITY
+============================================================ */
+:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -1,0 +1,224 @@
+{
+  "site": {
+    "name": "Dakina Consulting",
+    "tagline": "Azure, AI Engineering & IaC Industrialization",
+    "description": "Senior cloud and AI engineering consultancy. Azure architecture, AI-native delivery, IaC industrialization. Based in France, operating across France and MENA — Saudi Arabia, UAE, Morocco."
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "industries": "Industries",
+    "caseStudies": "Case Studies",
+    "about": "About",
+    "blog": "Insights",
+    "contact": "Contact",
+    "bookCall": "Book a call"
+  },
+  "hero": {
+    "label": "Cloud · AI · IaC",
+    "title": "Build cloud infrastructure that actually holds.",
+    "subtitle": "Dakina is a senior cloud and AI engineering consultancy. We work on what's hard: Azure architecture that survives production, IaC that teams maintain, AI agents that ship value beyond the demo.",
+    "primaryCta": "Discuss your project",
+    "secondaryCta": "Explore our services",
+    "pills": ["Microsoft Azure", "AI Engineering", "Infrastructure as Code", "DevSecOps"]
+  },
+  "valueProps": {
+    "title": "What sets us apart",
+    "subtitle": "Two principles shape how we deliver.",
+    "items": [
+      {
+        "title": "Senior expertise, end-to-end",
+        "description": "No layered teams. No junior pass-through. The person scoping the work is the person doing it."
+      },
+      {
+        "title": "AI-native delivery",
+        "description": "Claude and agentic tooling are part of how we generate IaC modules, review code, and produce documentation. It's how we work, not a service line."
+      },
+      {
+        "title": "France and MENA coverage",
+        "description": "Active across France, Morocco, Saudi Arabia and the UAE. Arabic-speaking team. Business practices adapted to regional context on request."
+      },
+      {
+        "title": "Knowledge transfer by default",
+        "description": "We don't build dependencies. Every engagement includes pair programming, documentation, and team enablement so you stay autonomous."
+      }
+    ]
+  },
+  "services": {
+    "label": "Our services",
+    "title": "Services built around what production actually demands",
+    "subtitle": "From strategy to operations, Dakina covers the full lifecycle of cloud, security, and AI transformation engagements.",
+    "viewAll": "View all services",
+    "items": [
+      {
+        "slug": "azure-architecture",
+        "icon": "☁️",
+        "title": "Azure Architecture",
+        "shortDescription": "Landing zones, Hub-Spoke networking, multi-subscription governance. Designs that survive 18 months of organic growth.",
+        "tags": ["Landing Zone", "CAF / ALZ", "Hub & Spoke"]
+      },
+      {
+        "slug": "ai-engineering",
+        "icon": "🤖",
+        "title": "AI Engineering",
+        "shortDescription": "Claude Code in the enterprise, AI gateways, agentic workflows, RAG pipelines. Production-grade AI, not demos.",
+        "tags": ["Claude", "Anthropic", "RAG", "Agents"]
+      },
+      {
+        "slug": "iac-industrialization",
+        "icon": "⚙️",
+        "title": "IaC Industrialization",
+        "shortDescription": "Terraform and Bicep at scale. Module libraries, pipeline standardization, AI-augmented review and generation.",
+        "tags": ["Terraform", "Bicep", "GitOps"]
+      },
+      {
+        "slug": "devsecops",
+        "icon": "🔄",
+        "title": "DevSecOps & CI/CD",
+        "shortDescription": "Azure DevOps and GitHub Actions pipelines. Shift-left security, secret management, supply chain protection.",
+        "tags": ["Azure DevOps", "GitHub Actions", "Shift-Left"]
+      },
+      {
+        "slug": "cloud-security",
+        "icon": "🔐",
+        "title": "Cloud Security",
+        "shortDescription": "Zero Trust architectures, Microsoft Defender for Cloud, Entra ID hardening, NIS2 and ISO 27001 alignment.",
+        "tags": ["Zero Trust", "Defender", "Entra ID"]
+      },
+      {
+        "slug": "governance-finops",
+        "icon": "📊",
+        "title": "Governance & FinOps",
+        "shortDescription": "Azure Policy, RBAC at scale, tagging strategies, cost optimization. Governance that doesn't slow delivery down.",
+        "tags": ["Azure Policy", "RBAC", "FinOps"]
+      }
+    ]
+  },
+  "industries": {
+    "label": "Industries",
+    "title": "Sector expertise where it matters",
+    "subtitle": "Each industry comes with its own regulatory, technical, and cultural constraints. We adapt accordingly.",
+    "viewAll": "View all industries",
+    "items": [
+      {
+        "slug": "finance",
+        "icon": "🏦",
+        "title": "Finance & Banking",
+        "description": "Regulated workloads, DORA and PCI compliance, sovereign cloud, advanced IAM."
+      },
+      {
+        "slug": "energy",
+        "icon": "⚡",
+        "title": "Energy & Utilities",
+        "description": "Resilient infrastructure, operational security, NIS2 compliance, OT/IT convergence."
+      },
+      {
+        "slug": "public-sector",
+        "icon": "🏛️",
+        "title": "Public Sector",
+        "description": "Sovereign hosting, data residency, ANSSI alignment, accessibility compliance."
+      },
+      {
+        "slug": "healthcare",
+        "icon": "🏥",
+        "title": "Healthcare",
+        "description": "HDS-certified hosting, interoperability, patient data protection, regulated AI."
+      }
+    ]
+  },
+  "approach": {
+    "label": "Our approach",
+    "title": "A structured method, adapted to your reality",
+    "subtitle": "From initial analysis to continuous improvement, a rigorous framework that bends to your context — not the other way around.",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Discovery",
+        "description": "Existing system audit, business stakes mapping, constraint identification. Defining objectives and scope."
+      },
+      {
+        "number": "02",
+        "title": "Architecture",
+        "description": "Target design, justified technology choices, security and governance standards. Collaborative validation."
+      },
+      {
+        "number": "03",
+        "title": "Implementation",
+        "description": "Iterative deployment, infrastructure as code, continuous integration, automated security testing from day one."
+      },
+      {
+        "number": "04",
+        "title": "Hardening",
+        "description": "DevSecOps practices, vulnerability scanning, configuration hardening, access and secrets management."
+      },
+      {
+        "number": "05",
+        "title": "Industrialization",
+        "description": "Production-ready CI/CD pipelines, operational documentation, runbooks, complete alerting and monitoring."
+      },
+      {
+        "number": "06",
+        "title": "Enablement",
+        "description": "Team training, pair programming, technical documentation. Your team takes over with confidence."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to discuss your project?",
+    "subtitle": "A first conversation to understand your stakes. No commitment, no unnecessary jargon.",
+    "button": "Start a conversation"
+  },
+  "contact": {
+    "title": "Let's talk about your project",
+    "subtitle": "Cloud project, architecture question, security review, or exploring how AI can transform your processes? Describe your context — we respond within 24 business hours.",
+    "form": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Professional email",
+      "company": "Company",
+      "role": "Your role",
+      "subject": "Subject",
+      "subjectOptions": [
+        "Cloud Architecture / Azure Migration",
+        "AI Engineering",
+        "DevSecOps & Automation",
+        "Cloud Security",
+        "Governance & FinOps",
+        "Strategic IT Advisory",
+        "Other"
+      ],
+      "message": "Describe your project",
+      "submit": "Send",
+      "privacy": "Your data is strictly confidential and will never be shared with third parties.",
+      "success": "Thank you for your message. We will respond within 24 business hours."
+    },
+    "info": {
+      "email": "contact@dakina-consulting.fr",
+      "website": "www.dakina-consulting.fr",
+      "location": "France — operating across France & MENA",
+      "responseTime": "Within 24 business hours"
+    }
+  },
+  "footer": {
+    "description": "Senior consultancy specialized in Azure cloud, AI engineering, IaC industrialization and cloud security. France and MENA coverage.",
+    "sections": {
+      "services": "Services",
+      "industries": "Industries",
+      "company": "Company",
+      "legal": "Legal"
+    },
+    "legalLinks": {
+      "legal": "Legal notice",
+      "privacy": "Privacy policy",
+      "cookies": "Cookies"
+    },
+    "copyright": "© 2026 Dakina Consulting · France"
+  },
+  "common": {
+    "learnMore": "Learn more",
+    "readMore": "Read more",
+    "back": "Back",
+    "loading": "Loading...",
+    "language": "Language"
+  }
+}

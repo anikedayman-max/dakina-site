@@ -1,0 +1,164 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { getTranslations } from '../../../i18n/utils';
+
+export async function getStaticPaths() {
+  const t = getTranslations('fr');
+  return t.services.items.map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+const { service } = Astro.props;
+const locale = 'fr';
+const t = getTranslations(locale);
+---
+
+<PageLayout locale={locale} title={service.title} description={service.shortDescription}>
+  <section class="section page-header">
+    <div class="container">
+      <a href="/fr/services" class="back-link">← {t.common.back}</a>
+      <span class="service-icon">{service.icon}</span>
+      <h1>{service.title}</h1>
+      <p class="lead">{service.shortDescription}</p>
+      <div class="card-tags" style="justify-content: flex-start; margin-top: 24px;">
+        {service.tags.map((tag) => <span class="tag">{tag}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="content-grid">
+        <div class="content-main">
+          <h2>Notre approche</h2>
+          <p>
+            Page en cours d'enrichissement — le contenu détaillé du service <strong>{service.title}</strong>
+            sera complété prochainement. Chaque page service comportera les sections suivantes :
+          </p>
+          <ul class="content-list">
+            <li><strong>Le problème que nous résolvons</strong> — les points de douleur concrets adressés.</li>
+            <li><strong>Notre approche de livraison</strong> — méthodologie, outillage, livrables.</li>
+            <li><strong>Ce que vous obtenez</strong> — résultats tangibles, documentation, transfert de compétences.</li>
+            <li><strong>Formats d'engagement types</strong> — sprint, advisory, partenariat long terme.</li>
+            <li><strong>Études de cas associées</strong> — quand disponibles.</li>
+          </ul>
+        </div>
+
+        <aside class="content-sidebar">
+          <div class="card">
+            <h4 class="card-title">Formats d'engagement</h4>
+            <ul class="sidebar-list">
+              <li>Advisory sprint (2–4 semaines)</li>
+              <li>Projet à périmètre fixe</li>
+              <li>Partenariat long terme</li>
+              <li>Revue stratégique</li>
+            </ul>
+          </div>
+
+          <div class="card" style="margin-top: 20px;">
+            <h4 class="card-title">Nous contacter</h4>
+            <p class="card-description">
+              Discutons de vos besoins lors d'un premier échange, sans engagement.
+            </p>
+            <a href="/fr/contact" class="btn btn-primary" style="margin-top: 12px; width: 100%; justify-content: center;">
+              {t.cta.button} →
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <CTASection locale={locale} />
+</PageLayout>
+
+<style>
+  .page-header {
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-8);
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--gray-300);
+    font-size: 0.9rem;
+    margin-bottom: var(--space-6);
+  }
+
+  .back-link:hover {
+    color: var(--cyan);
+  }
+
+  .service-icon {
+    display: inline-block;
+    font-size: 3rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .page-header h1 {
+    margin-bottom: var(--space-4);
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    color: var(--gray-200);
+    max-width: 720px;
+    line-height: 1.6;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-12);
+  }
+
+  .content-main h2 {
+    margin-bottom: var(--space-6);
+  }
+
+  .content-main p {
+    color: var(--gray-200);
+    margin-bottom: var(--space-6);
+    line-height: 1.8;
+  }
+
+  .content-list {
+    margin-top: var(--space-4);
+    padding-left: 0;
+  }
+
+  .content-list li {
+    color: var(--gray-200);
+    margin-bottom: var(--space-3);
+    padding-left: 24px;
+    position: relative;
+    line-height: 1.7;
+  }
+
+  .content-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--cyan);
+  }
+
+  .sidebar-list li {
+    padding: 8px 0;
+    color: var(--gray-200);
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .sidebar-list li:last-child {
+    border-bottom: none;
+  }
+
+  @media (max-width: 900px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

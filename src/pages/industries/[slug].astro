@@ -1,0 +1,49 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+import { getTranslations } from '../../i18n/utils';
+
+export async function getStaticPaths() {
+  const t = getTranslations('en');
+  return t.industries.items.map((industry) => ({
+    params: { slug: industry.slug },
+    props: { industry },
+  }));
+}
+
+const { industry } = Astro.props;
+const locale = 'en';
+const t = getTranslations(locale);
+---
+
+<PageLayout locale={locale} title={industry.title} description={industry.description}>
+  <section class="section page-header">
+    <div class="container">
+      <a href="/industries" class="back-link">← {t.common.back} {t.nav.industries.toLowerCase()}</a>
+      <span class="service-icon">{industry.icon}</span>
+      <h1>{industry.title}</h1>
+      <p class="lead">{industry.description}</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2>How we serve this industry</h2>
+      <p style="color: var(--gray-200); max-width: 720px; margin-top: 24px;">
+        Detailed content for the <strong>{industry.title}</strong> sector will be added here, including
+        regulatory specifics, common challenges, typical engagements, and references when available.
+      </p>
+    </div>
+  </section>
+
+  <CTASection locale={locale} />
+</PageLayout>
+
+<style>
+  .page-header { padding-top: var(--space-12); padding-bottom: var(--space-8); }
+  .back-link { display: inline-block; color: var(--gray-300); font-size: 0.9rem; margin-bottom: var(--space-6); }
+  .back-link:hover { color: var(--cyan); }
+  .service-icon { display: inline-block; font-size: 3rem; margin-bottom: var(--space-4); }
+  .page-header h1 { margin-bottom: var(--space-4); }
+  .lead { font-size: 1.25rem; color: var(--gray-200); max-width: 720px; line-height: 1.6; }
+</style>

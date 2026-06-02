@@ -1,0 +1,50 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+import { getTranslations } from '../../i18n/utils';
+
+const locale = 'en';
+const t = getTranslations(locale);
+---
+
+<PageLayout locale={locale} title={t.nav.caseStudies}>
+  <section class="section page-header">
+    <div class="container">
+      <span class="section-label">{t.nav.caseStudies}</span>
+      <h1>Case studies</h1>
+      <p class="section-subtitle">
+        Selected engagements from our work in cloud, AI, and IaC industrialization. More cases coming soon.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="empty-state card">
+        <h3>Case studies in preparation</h3>
+        <p>
+          We are currently anonymizing and curating recent engagement reports.
+          They will appear here progressively. In the meantime, contact us directly
+          for relevant references on request.
+        </p>
+        <a href="/contact" class="btn btn-primary" style="margin-top: 24px;">
+          {t.cta.button} →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CTASection locale={locale} />
+</PageLayout>
+
+<style>
+  .page-header { padding-top: var(--space-16); padding-bottom: var(--space-8); }
+  .empty-state {
+    text-align: center;
+    padding: var(--space-16);
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .empty-state h3 { margin-bottom: var(--space-4); }
+  .empty-state p { color: var(--gray-200); }
+</style>

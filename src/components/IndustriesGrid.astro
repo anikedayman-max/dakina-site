@@ -1,0 +1,44 @@
+---
+import { getTranslations, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+const base = locale === 'en' ? '' : '/fr';
+---
+
+<section class="section industries-section">
+  <div class="container">
+    <div class="text-center">
+      <span class="section-label">{t.industries.label}</span>
+      <h2 class="section-title">{t.industries.title}</h2>
+      <p class="section-subtitle" style="margin-left: auto; margin-right: auto;">{t.industries.subtitle}</p>
+    </div>
+
+    <div class="grid grid-4 industries-grid">
+      {t.industries.items.map((industry) => (
+        <a href={`${base}/industries/${industry.slug}`} class="industry-card card">
+          <span class="card-icon">{industry.icon}</span>
+          <h3 class="card-title">{industry.title}</h3>
+          <p class="card-description">{industry.description}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .industries-grid {
+    margin-top: var(--space-12);
+  }
+
+  .industry-card {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+  }
+</style>
