@@ -7,27 +7,42 @@ const locale = 'en';
 const t = getTranslations(locale);
 ---
 
-<PageLayout locale={locale} title={t.nav.blog}>
+<PageLayout locale={locale} title={t.nav.blog} description={t.blog.subtitle}>
   <section class="section page-header">
     <div class="container">
-      <span class="section-label">{t.nav.blog}</span>
-      <h1>Insights</h1>
-      <p class="section-subtitle">
-        Technical perspectives on cloud, AI engineering, and IaC industrialization.
-      </p>
+      <span class="section-label">{t.blog.eyebrow}</span>
+      <h1>{t.blog.title}</h1>
+      <p class="section-subtitle">{t.blog.subtitle}</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <div class="empty-state card">
-        <h3>Articles coming soon</h3>
-        <p>
-          We are preparing a series of technical articles on Azure architecture, AI agentic workflows,
-          and IaC industrialization. Stay tuned.
-        </p>
-        <a href="https://www.linkedin.com/company/dakina" target="_blank" rel="noopener" class="btn btn-secondary" style="margin-top: 24px;">
-          → Follow us on LinkedIn
+      <div class="grid grid-3 blog-grid">
+        {t.blog.items.map((item) => (
+          <article class="card blog-card">
+            <div class="blog-meta">
+              <span>{item.category}</span>
+              <span>{item.readTime}</span>
+            </div>
+            <h3 class="card-title">{item.title}</h3>
+            <p class="card-description">{item.summary}</p>
+            <span class="blog-date">{item.date}</span>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="card closing-card">
+        <div>
+          <h3>{t.blog.cta}</h3>
+          <p>We will publish long-form articles here; for now, LinkedIn is the quickest place to follow updates.</p>
+        </div>
+        <a href="https://www.linkedin.com/company/dakina" target="_blank" rel="noopener" class="btn btn-secondary">
+          → LinkedIn
         </a>
       </div>
     </div>
@@ -38,12 +53,33 @@ const t = getTranslations(locale);
 
 <style>
   .page-header { padding-top: var(--space-16); padding-bottom: var(--space-8); }
-  .empty-state {
-    text-align: center;
-    padding: var(--space-16);
-    max-width: 720px;
-    margin: 0 auto;
+  .blog-grid { align-items: stretch; }
+  .blog-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
   }
-  .empty-state h3 { margin-bottom: var(--space-4); }
-  .empty-state p { color: var(--gray-200); }
+  .blog-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-3);
+    color: var(--cyan);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .blog-date { color: var(--gray-400); font-size: 0.85rem; }
+  .closing-card {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-6);
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .closing-card p {
+    color: var(--gray-200);
+    max-width: 720px;
+    margin-top: var(--space-2);
+  }
 </style>

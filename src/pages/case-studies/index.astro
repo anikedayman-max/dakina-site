@@ -7,29 +7,49 @@ const locale = 'en';
 const t = getTranslations(locale);
 ---
 
-<PageLayout locale={locale} title={t.nav.caseStudies}>
+<PageLayout locale={locale} title={t.nav.caseStudies} description={t.caseStudies.subtitle}>
   <section class="section page-header">
     <div class="container">
-      <span class="section-label">{t.nav.caseStudies}</span>
-      <h1>Case studies</h1>
-      <p class="section-subtitle">
-        Selected engagements from our work in cloud, AI, and IaC industrialization. More cases coming soon.
-      </p>
+      <span class="section-label">{t.caseStudies.eyebrow}</span>
+      <h1>{t.caseStudies.title}</h1>
+      <p class="section-subtitle">{t.caseStudies.subtitle}</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <div class="empty-state card">
-        <h3>Case studies in preparation</h3>
-        <p>
-          We are currently anonymizing and curating recent engagement reports.
-          They will appear here progressively. In the meantime, contact us directly
-          for relevant references on request.
-        </p>
-        <a href="/contact" class="btn btn-primary" style="margin-top: 24px;">
-          {t.cta.button} →
-        </a>
+      <div class="grid grid-3 case-grid">
+        {t.caseStudies.items.map((item) => (
+          <article class="card case-card">
+            <span class="case-sector">{item.sector}</span>
+            <h3 class="card-title">{item.title}</h3>
+            <p class="card-description">{item.challenge}</p>
+            <div class="case-section">
+              <h4>Approach</h4>
+              <p>{item.approach}</p>
+            </div>
+            <div class="case-section">
+              <h4>Results</h4>
+              <ul class="case-results">
+                {item.results.map((result) => (
+                  <li>{result}</li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="card closing-card">
+        <div>
+          <h3>{t.caseStudies.closingTitle}</h3>
+          <p>{t.caseStudies.closingText}</p>
+        </div>
+        <a href="/contact" class="btn btn-primary">{t.cta.button} →</a>
       </div>
     </div>
   </section>
@@ -39,12 +59,50 @@ const t = getTranslations(locale);
 
 <style>
   .page-header { padding-top: var(--space-16); padding-bottom: var(--space-8); }
-  .empty-state {
-    text-align: center;
-    padding: var(--space-16);
-    max-width: 720px;
-    margin: 0 auto;
+  .case-grid { align-items: stretch; }
+  .case-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
   }
-  .empty-state h3 { margin-bottom: var(--space-4); }
-  .empty-state p { color: var(--gray-200); }
+  .case-sector {
+    color: var(--cyan);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .case-section h4 {
+    margin-bottom: var(--space-2);
+    font-size: 0.95rem;
+  }
+  .case-section p,
+  .case-results li {
+    color: var(--gray-200);
+    line-height: 1.7;
+  }
+  .case-results { padding-left: 0; }
+  .case-results li {
+    margin-bottom: var(--space-2);
+    padding-left: 22px;
+    position: relative;
+  }
+  .case-results li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--cyan);
+  }
+  .closing-card {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-6);
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .closing-card p {
+    color: var(--gray-200);
+    max-width: 720px;
+    margin-top: var(--space-2);
+  }
 </style>

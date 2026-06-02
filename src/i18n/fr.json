@@ -168,9 +168,413 @@
     "subtitle": "Un premier échange pour comprendre vos enjeux. Sans engagement, sans jargon inutile.",
     "button": "Démarrer une conversation"
   },
+  "about": {
+    "eyebrow": "À propos de Dakina",
+    "title": "Un conseil senior, livré comme une équipe embarquée",
+    "subtitle": "Nous combinons architecture, livraison et montée en compétence pour que les clients repartent avec des systèmes qui fonctionnent et des équipes capables de les faire vivre.",
+    "sections": [
+      {
+        "title": "Pourquoi nous existons",
+        "paragraphs": [
+          "Nous avons créé Dakina pour réduire l'écart entre le cadrage stratégique et l'exécution. Trop souvent, les missions s'arrêtent à une présentation ou dépendent d'une grosse équipe pour garder l'élan.",
+          "Notre modèle est plus simple : une personne senior cadre la mission, conçoit la solution, la livre et transmet les connaissances nécessaires pour la maintenir."
+        ]
+      },
+      {
+        "title": "Comment nous travaillons",
+        "paragraphs": [
+          "Nous intervenons sur l'architecture cloud, le DevSecOps, l'industrialisation IaC, la sécurité cloud et l'ingénierie IA lorsque la qualité de production compte plus que la nouveauté.",
+          "Nous utilisons l'IA en interne pour accélérer l'analyse, la documentation et la génération de code, mais chaque recommandation est revue à l'aune de la sécurité, de la maintenabilité et de la réalité opérationnelle."
+        ],
+        "bullets": [
+          "Revue d'architecture et design cible",
+          "Sprints d'implémentation et remédiation",
+          "Accompagnement stratégique pour les équipes de direction",
+          "Montée en compétence, documentation et transfert"
+        ]
+      },
+      {
+        "title": "Où nous intervenons",
+        "paragraphs": [
+          "Basés en France, nous intervenons en France et dans la zone MENA, notamment en Arabie Saoudite, aux Émirats arabes unis et au Maroc. Nous adaptons notre manière de livrer au contexte régional, à la langue et aux contraintes métier."
+        ]
+      }
+    ],
+    "principles": [
+      {
+        "title": "Pilotage senior dès le départ",
+        "description": "Pas de passage de relais à des couches juniors une fois la mission lancée."
+      },
+      {
+        "title": "IA utile, pas gadget",
+        "description": "Nous utilisons l'IA quand elle accélère la livraison, tout en gardant l'humain responsable de la qualité."
+      },
+      {
+        "title": "Transfert par défaut",
+        "description": "Chaque mission inclut documentation, pair programming et transfert de connaissances."
+      },
+      {
+        "title": "Le contexte régional compte",
+        "description": "Nous nous adaptons aux réalités réglementaires et culturelles au lieu d'imposer un modèle générique."
+      }
+    ]
+  },
+  "serviceDetails": {
+    "azure-architecture": {
+      "intro": "Nous concevons des fondations Azure qui restent gouvernables à mesure que les souscriptions, les équipes et les workloads grandissent.",
+      "challengeTitle": "Problèmes résolus",
+      "challengePoints": [
+        "Des souscriptions créées sans landing zone",
+        "Des choix réseau et identité faits trop tard",
+        "Une dérive des règles et des validations manuelles qui ralentissent l'onboarding"
+      ],
+      "approachTitle": "Notre approche",
+      "approachParagraphs": [
+        "Nous définissons d'abord la plateforme cible : management groups, baseline de policy, hub-and-spoke ou vWAN, frontières d'identité et séparation des environnements.",
+        "L'objectif est une plateforme facile à étendre, auditable et prévisible pour les équipes de delivery."
+      ],
+      "deliverablesTitle": "Livrables typiques",
+      "deliverables": [
+        "Architecture cible",
+        "Blueprint de landing zone",
+        "Modèle de policy et RBAC",
+        "Patterns réseau et identité",
+        "Backlog d'implémentation"
+      ],
+      "engagementTitle": "Pertinent lorsque",
+      "engagementPoints": [
+        "Construction de plateforme greenfield",
+        "Remédiation de landing zone",
+        "Revue d'architecture avant migration",
+        "Recentrage de la gouvernance plateforme"
+      ]
+    },
+    "ai-engineering": {
+      "intro": "Nous construisons des systèmes IA concrets : pipelines de recherche, automatisation de workflows et intégrations sécurisées qui s'insèrent réellement dans le travail des équipes.",
+      "challengeTitle": "Problèmes résolus",
+      "challengePoints": [
+        "Des projets IA qui restent des démos",
+        "Un besoin de connecter les modèles à la connaissance interne de manière sécurisée",
+        "Un comportement des prompts et des agents à mesurer et auditer"
+      ],
+      "approachTitle": "Notre approche",
+      "approachParagraphs": [
+        "Nous nous concentrons sur l'IA utile : pipelines de retrieval, automatisation de workflows, assistants et intégration sécurisée aux systèmes métiers.",
+        "Nous construisons avec l'évaluation en tête pour que les équipes puissent mesurer la qualité, le coût et la sécurité au lieu de supposer."
+      ],
+      "deliverablesTitle": "Livrables typiques",
+      "deliverables": [
+        "Architecture de référence",
+        "Design de pipeline RAG",
+        "Patterns de prompt et de garde-fous",
+        "Banc d'évaluation",
+        "Runbook opérationnel"
+      ],
+      "engagementTitle": "Pertinent lorsque",
+      "engagementPoints": [
+        "Assistants de connaissance",
+        "Prototypes de workflows agentiques",
+        "Intégration à une plateforme IA",
+        "Revue sécurité et gouvernance"
+      ]
+    },
+    "iac-industrialization": {
+      "intro": "Nous standardisons la livraison Terraform et Bicep pour que plusieurs équipes puissent livrer sans réinventer les mêmes patterns.",
+      "challengeTitle": "Problèmes résolus",
+      "challengePoints": [
+        "Des modules ponctuels dispersés dans plusieurs repos",
+        "Des patterns de pipelines incohérents",
+        "Des revues lentes et beaucoup de drift"
+      ],
+      "approachTitle": "Notre approche",
+      "approachParagraphs": [
+        "Nous standardisons les modules, les conventions de nommage, la gestion du state et les pipelines pour permettre à plusieurs équipes de livrer sereinement.",
+        "La génération assistée par l'IA accélère le boilerplate, mais chaque module et chaque changement reste revu au regard des standards d'exploitation."
+      ],
+      "deliverablesTitle": "Livrables typiques",
+      "deliverables": [
+        "Catalogue de modules",
+        "Templates de pipelines",
+        "Conventions de state et de branches",
+        "Quality gates",
+        "Documentation et exemples"
+      ],
+      "engagementTitle": "Pertinent lorsque",
+      "engagementPoints": [
+        "Modernisation Terraform",
+        "Standardisation Bicep",
+        "Plateforme de delivery multi-équipes",
+        "Revue et nettoyage de code IaC"
+      ]
+    },
+    "devsecops": {
+      "intro": "Nous transformons la delivery en workflow gouverné avec contrôles automatisés, gestion des secrets, approvals de release et traçabilité.",
+      "challengeTitle": "Problèmes résolus",
+      "challengePoints": [
+        "Des contrôles sécurité trop tardifs",
+        "Une gestion incohérente des secrets et des validations",
+        "Des déploiements dépendants d'actions manuelles"
+      ],
+      "approachTitle": "Notre approche",
+      "approachParagraphs": [
+        "Nous transformons la delivery en workflow gouverné avec contrôles automatisés, gestion des secrets, approvals de déploiement et traçabilité.",
+        "Le résultat est un pipeline fiable sans devenir un goulot d'étranglement."
+      ],
+      "deliverablesTitle": "Livrables typiques",
+      "deliverables": [
+        "Pipelines CI/CD de référence",
+        "Patterns de gestion des secrets",
+        "Intégration des scans de sécurité",
+        "Modèle d'approbation et de release",
+        "Runbooks"
+      ],
+      "engagementTitle": "Pertinent lorsque",
+      "engagementPoints": [
+        "Modernisation de pipelines",
+        "Durcissement de la supply chain",
+        "Automatisation des releases",
+        "Shift-left security"
+      ]
+    },
+    "cloud-security": {
+      "intro": "Nous transformons la sécurité en contrôles réellement exécutés : durcissement de l'identité, enforcement des policies, defaults sûrs et monitoring concret.",
+      "challengeTitle": "Problèmes résolus",
+      "challengePoints": [
+        "Une identité trop permissive",
+        "Des signaux Defender peu exploités",
+        "Des baselines de sécurité documentées mais non appliquées"
+      ],
+      "approachTitle": "Notre approche",
+      "approachParagraphs": [
+        "Nous transformons la sécurité en contrôles réellement exécutés : durcissement de l'identité, enforcement des policies, defaults sûrs et monitoring concret.",
+        "L'accent est mis sur la réduction de la surface d'attaque et la répétabilité de la conformité."
+      ],
+      "deliverablesTitle": "Livrables typiques",
+      "deliverables": [
+        "Baseline de sécurité",
+        "Modèle d'identité et d'accès",
+        "Pack de policies",
+        "Modèle de monitoring des menaces",
+        "Backlog de remédiation"
+      ],
+      "engagementTitle": "Pertinent lorsque",
+      "engagementPoints": [
+        "Évaluation de posture sécurité",
+        "Design Zero Trust",
+        "Revue des accès privilégiés",
+        "Alignement conformité"
+      ]
+    },
+    "governance-finops": {
+      "intro": "Nous concevons une gouvernance qui facilite la delivery : management groups, policy, tagging, visibilité des coûts et frontières de responsabilité.",
+      "challengeTitle": "Problèmes résolus",
+      "challengePoints": [
+        "Des coûts cloud qui augmentent plus vite que la visibilité",
+        "Un tagging et une propriété des ressources incohérents",
+        "Une gouvernance qui crée de la friction au lieu d'apporter de la clarté"
+      ],
+      "approachTitle": "Notre approche",
+      "approachParagraphs": [
+        "Nous concevons une gouvernance qui facilite la delivery : management groups, policy, tagging, visibilité des coûts et frontières de responsabilité.",
+        "L'objectif est une plateforme contrôlée sans devenir bureaucratique."
+      ],
+      "deliverablesTitle": "Livrables typiques",
+      "deliverables": [
+        "Modèle de gouvernance",
+        "Approche de dashboard de visibilité coûts",
+        "Standards de policy et de tagging",
+        "Design chargeback/showback",
+        "Modèle d'exploitation"
+      ],
+      "engagementTitle": "Pertinent lorsque",
+      "engagementPoints": [
+        "Évaluation FinOps",
+        "Refonte de gouvernance",
+        "Sprint d'optimisation des coûts",
+        "Nettoyage RBAC et policy"
+      ]
+    }
+  },
+  "industryDetails": {
+    "finance": {
+      "intro": "Nous accompagnons les environnements financiers régulés qui doivent concilier contrôle, traçabilité et vitesse de delivery.",
+      "challengeTitle": "Ce qui compte le plus",
+      "challengePoints": [
+        "Alignement DORA et PCI",
+        "Contrôles d'identité et d'accès privilégié solides",
+        "Gestion du changement répétable et auditabilité"
+      ],
+      "approachTitle": "Comment nous adaptons",
+      "approachParagraphs": [
+        "Nous rendons la gouvernance visible, automatisons autant que possible la production de preuves, et concevons des flux de delivery qui réduisent les exceptions.",
+        "L'objectif est d'aller vite sans créer de dette de conformité."
+      ],
+      "deliverablesTitle": "Résultats typiques",
+      "deliverables": [
+        "Landing zone régulée",
+        "Architecture d'identité et d'accès",
+        "Cartographie des contrôles et du flux de preuves",
+        "Backlog de remédiation priorisé"
+      ]
+    },
+    "energy": {
+      "intro": "Nous concevons des plateformes résilientes pour les équipes énergie et utilities qui ont besoin de fiabilité opérationnelle et d'intégration sécurisée.",
+      "challengeTitle": "Ce qui compte le plus",
+      "challengePoints": [
+        "Résilience opérationnelle",
+        "Gestion des frontières OT/IT",
+        "Posture de sécurité et segmentation"
+      ],
+      "approachTitle": "Comment nous adaptons",
+      "approachParagraphs": [
+        "Nous partons d'abord de la réalité opérationnelle : disponibilité, segmentation, reprise, et contraintes des environnements mixtes.",
+        "Les décisions d'architecture sont évaluées sur la résilience et la clarté, pas seulement sur l'élégance."
+      ],
+      "deliverablesTitle": "Résultats typiques",
+      "deliverables": [
+        "Conception réseau et plateforme résiliente",
+        "Modèle de segmentation sécurité",
+        "Runbooks de reprise et d'exploitation",
+        "Backlog de durcissement priorisé"
+      ]
+    },
+    "public-sector": {
+      "intro": "Nous aidons les équipes du secteur public à concevoir des environnements compatibles souveraineté avec une vision claire de la résidence des données, de l'accessibilité et du contrôle.",
+      "challengeTitle": "Ce qui compte le plus",
+      "challengePoints": [
+        "Contraintes de résidence et de souveraineté",
+        "Exigences d'accessibilité et d'achat public",
+        "Gouvernance et documentation transparentes"
+      ],
+      "approachTitle": "Comment nous adaptons",
+      "approachParagraphs": [
+        "Nous gardons une architecture défendable et une documentation complète pour que les parties prenantes puissent valider les choix rapidement.",
+        "Le focus est mis sur des standards clairs, une responsabilité explicite et une livraison pratique."
+      ],
+      "deliverablesTitle": "Résultats typiques",
+      "deliverables": [
+        "Architecture de référence compatible souveraineté",
+        "Cartographie des contrôles et de la gouvernance",
+        "Plan de delivery sensible à l'accessibilité",
+        "Roadmap d'implémentation"
+      ]
+    },
+    "healthcare": {
+      "intro": "Nous accompagnons les équipes santé qui ont besoin de plateformes sécurisées et interopérables pour leurs usages patients et back-office.",
+      "challengeTitle": "Ce qui compte le plus",
+      "challengePoints": [
+        "Traitement des données sensibles",
+        "Interopérabilité avec les systèmes existants",
+        "Hébergement sécurisé et usage régulé de l'IA"
+      ],
+      "approachTitle": "Comment nous adaptons",
+      "approachParagraphs": [
+        "Nous concevons pour la confidentialité, la sécurité et l'intégration pratique afin de moderniser sans casser les flux de soin.",
+        "Quand l'IA intervient, les garde-fous et l'auditabilité sont explicités dès le départ."
+      ],
+      "deliverablesTitle": "Résultats typiques",
+      "deliverables": [
+        "Blueprint de plateforme santé sécurisée",
+        "Design des intégrations et des flux de données",
+        "Modèle de contrôle d'accès et de confidentialité",
+        "Garde-fous de gouvernance IA"
+      ]
+    }
+  },
+  "caseStudies": {
+    "eyebrow": "Travaux sélectionnés",
+    "title": "Des études de cas orientées résultats mesurables",
+    "subtitle": "Des exemples anonymisés du type de missions que nous menons en cloud, IA et ingénierie plateforme.",
+    "items": [
+      {
+        "title": "Landing zone Azure pour un groupe régulé",
+        "sector": "Finance",
+        "challenge": "L'organisation avait des souscriptions fragmentées, une application des policies inégale et un onboarding lent des nouvelles équipes.",
+        "approach": "Nous avons défini une landing zone standard avec management groups, policy-as-code, réseau hub-and-spoke et un chemin de déploiement répétable pour les nouveaux environnements.",
+        "results": [
+          "Onboarding plus rapide avec un pattern plateforme prévisible",
+          "Application des policies plus claire et moins d'interventions manuelles",
+          "Un backlog qui a facilité le phasage des migrations futures"
+        ]
+      },
+      {
+        "title": "Assistant IA interne pour les opérations",
+        "sector": "Services industriels",
+        "challenge": "Les équipes passaient trop de temps à chercher la documentation interne et à escalader des questions simples à des experts.",
+        "approach": "Nous avons conçu un pipeline de retrieval sécurisé sur les sources de connaissance internes, ajouté des critères d'évaluation et encapsulé le tout dans un déploiement Azure contrôlé.",
+        "results": [
+          "Réponses plus rapides pour les questions opérationnelles récurrentes",
+          "Réduction du volume d'escalade vers les équipes support",
+          "Une base de qualité mesurable pour les futurs changements de prompts"
+        ]
+      },
+      {
+        "title": "Plateforme Terraform pour livraison multi-équipes",
+        "sector": "Technologie",
+        "challenge": "Différentes équipes utilisaient des patterns de modules incohérents, provoquant du drift et des revues répétées.",
+        "approach": "Nous avons créé un catalogue de modules, standardisé les templates de pipelines et introduit l'automatisation de revue et des conventions de travail communes.",
+        "results": [
+          "Des modules d'infrastructure plus réutilisables",
+          "Moins de changements évitables pendant les revues",
+          "Un modèle de delivery qui s'étendait sur plusieurs repositories"
+        ]
+      }
+    ],
+    "closingTitle": "Besoin d'une référence adaptée à votre contexte ?",
+    "closingText": "Nous pouvons partager des exemples anonymisés sous NDA ou cadrer un échange de découverte autour des contraintes de votre environnement."
+  },
+  "blog": {
+    "eyebrow": "Insights",
+    "title": "Des points de vue courts et utiles sur la livraison cloud et IA",
+    "subtitle": "Pas de remplissage. Juste des notes de terrain sur l'architecture, l'automatisation et l'exploitation de systèmes en production.",
+    "items": [
+      {
+        "title": "Pourquoi les projets IA échouent après la démo",
+        "category": "Ingénierie IA",
+        "readTime": "8 min",
+        "summary": "Le mode d'échec récurrent n'est pas seulement la qualité du modèle. C'est l'absence de garde-fous, une responsabilité floue et aucun critère opérationnel de succès.",
+        "date": "2026-05-28",
+        "slug": "projets-ia-echouent-apres-demo"
+      },
+      {
+        "title": "Une landing zone est un produit, pas un schéma",
+        "category": "Architecture Azure",
+        "readTime": "6 min",
+        "summary": "Une landing zone ne fonctionne que si elle est traitée comme une plateforme vivante avec backlog, standards et responsabilité explicite.",
+        "date": "2026-05-18",
+        "slug": "landing-zone-est-un-produit"
+      },
+      {
+        "title": "À quoi ressemble une bonne industrialisation IaC",
+        "category": "IaC",
+        "readTime": "7 min",
+        "summary": "Le but n'est pas seulement plus de Terraform ou de Bicep. C'est un système où modules, revue et release sont prévisibles entre équipes.",
+        "date": "2026-05-08",
+        "slug": "bonne-industrialisation-iac"
+      }
+    ],
+    "cta": "Suivez-nous sur LinkedIn pour plus d'actualités"
+  },
   "contact": {
     "title": "Parlons de votre projet",
     "subtitle": "Projet cloud, question d'architecture, revue de sécurité, ou exploration de l'IA pour vos processus ? Décrivez-nous votre contexte — nous répondons sous 24 heures ouvrées.",
+    "process": {
+      "title": "La suite",
+      "steps": [
+        {
+          "title": "1. Lecture initiale",
+          "description": "Nous lisons votre demande, identifions les principales contraintes et décidons si un appel ou une réponse écrite est la meilleure suite."
+        },
+        {
+          "title": "2. Échange court",
+          "description": "Si c'est pertinent, nous planifions un échange ciblé pour clarifier le périmètre, le timing et les critères de décision."
+        },
+        {
+          "title": "3. Proposition concrète",
+          "description": "Vous recevez une recommandation pratique : revue, sprint, accompagnement, ou avis de non-fit si nous ne sommes pas le bon partenaire."
+        }
+      ]
+    },
     "form": {
       "firstName": "Prénom",
       "lastName": "Nom",

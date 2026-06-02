@@ -168,9 +168,413 @@
     "subtitle": "A first conversation to understand your stakes. No commitment, no unnecessary jargon.",
     "button": "Start a conversation"
   },
+  "about": {
+    "eyebrow": "About Dakina",
+    "title": "Senior-led consulting, delivered like an embedded team",
+    "subtitle": "We combine architecture, delivery, and enablement so clients leave with working systems and the ability to run them.",
+    "sections": [
+      {
+        "title": "Why we exist",
+        "paragraphs": [
+          "We built Dakina to close the gap between strategy and delivery. Too many engagements stop at a slide deck or depend on a large team to keep momentum alive.",
+          "Our model is simpler: one senior person scopes the work, designs it, delivers it, and transfers the knowledge needed to keep it running."
+        ]
+      },
+      {
+        "title": "How we work",
+        "paragraphs": [
+          "We take on cloud architecture, DevSecOps, IaC industrialization, cloud security, and AI engineering when production quality matters more than novelty.",
+          "We use AI tooling internally to accelerate analysis, documentation, and code generation, but every recommendation is reviewed against security, maintainability, and operating reality."
+        ],
+        "bullets": [
+          "Architecture reviews and target-state design",
+          "Implementation sprints and remediation",
+          "Advisory retainers for leadership teams",
+          "Team enablement, documentation, and handover"
+        ]
+      },
+      {
+        "title": "Where we operate",
+        "paragraphs": [
+          "Based in France, we work across France and MENA, including Saudi Arabia, the UAE, and Morocco. We adapt our delivery style to regional context, language, and business constraints."
+        ]
+      }
+    ],
+    "principles": [
+      {
+        "title": "Senior-led from day one",
+        "description": "No handoffs to junior layers once the engagement starts."
+      },
+      {
+        "title": "Practical AI adoption",
+        "description": "We use AI where it speeds delivery and keep humans accountable for quality."
+      },
+      {
+        "title": "Enablement by default",
+        "description": "Every engagement includes documentation, pairing, and knowledge transfer."
+      },
+      {
+        "title": "Regional context matters",
+        "description": "We adapt to regulatory and cultural realities instead of forcing a generic model."
+      }
+    ]
+  },
+  "serviceDetails": {
+    "azure-architecture": {
+      "intro": "We design Azure foundations that stay governable as subscriptions, teams, and workloads grow.",
+      "challengeTitle": "Problems we solve",
+      "challengePoints": [
+        "Subscriptions created ad hoc with no landing zone",
+        "Networking and identity decisions made too late",
+        "Policy drift and manual approvals slowing onboarding"
+      ],
+      "approachTitle": "How we deliver",
+      "approachParagraphs": [
+        "We define the target platform first: management groups, policy baselines, hub-and-spoke or vWAN, identity boundaries, and environment separation.",
+        "The goal is a platform that is easy to extend, auditable, and predictable for delivery teams."
+      ],
+      "deliverablesTitle": "Typical deliverables",
+      "deliverables": [
+        "Target-state architecture",
+        "Landing zone blueprint",
+        "Policy and RBAC model",
+        "Network and identity patterns",
+        "Implementation backlog"
+      ],
+      "engagementTitle": "Best fit when",
+      "engagementPoints": [
+        "Greenfield platform builds",
+        "Landing zone remediation",
+        "Architecture review before migration",
+        "Platform governance reset"
+      ]
+    },
+    "ai-engineering": {
+      "intro": "We build practical AI systems: retrieval pipelines, workflow automation, and secure integrations that actually fit how teams work.",
+      "challengeTitle": "Problems we solve",
+      "challengePoints": [
+        "AI initiatives start as demos and never reach operations",
+        "Teams need a secure way to connect models to internal knowledge",
+        "Prompt and agent behavior must be measurable and auditable"
+      ],
+      "approachTitle": "How we deliver",
+      "approachParagraphs": [
+        "We focus on useful AI: retrieval pipelines, workflow automation, assistant experiences, and secure integration with business systems.",
+        "We build with evaluation in mind so teams can measure quality, cost, and safety instead of guessing."
+      ],
+      "deliverablesTitle": "Typical deliverables",
+      "deliverables": [
+        "Reference architecture",
+        "RAG pipeline design",
+        "Prompt and guardrail patterns",
+        "Evaluation harness",
+        "Operational runbook"
+      ],
+      "engagementTitle": "Best fit when",
+      "engagementPoints": [
+        "Knowledge assistants",
+        "Agentic workflow prototypes",
+        "AI platform integration",
+        "Security and governance reviews"
+      ]
+    },
+    "iac-industrialization": {
+      "intro": "We standardize Terraform and Bicep delivery so multiple teams can ship safely without reinventing the same patterns.",
+      "challengeTitle": "Problems we solve",
+      "challengePoints": [
+        "One-off modules scattered across repos",
+        "Inconsistent pipeline patterns",
+        "Slow reviews and high drift"
+      ],
+      "approachTitle": "How we deliver",
+      "approachParagraphs": [
+        "We standardize modules, naming, state handling, and pipeline conventions so multiple teams can ship safely.",
+        "AI-assisted generation helps speed up boilerplate, but every module and change is still reviewed against operating standards."
+      ],
+      "deliverablesTitle": "Typical deliverables",
+      "deliverables": [
+        "Module catalog",
+        "Pipeline templates",
+        "State and branching conventions",
+        "Quality gates",
+        "Documentation and examples"
+      ],
+      "engagementTitle": "Best fit when",
+      "engagementPoints": [
+        "Terraform modernization",
+        "Bicep standardization",
+        "Multi-team delivery platform",
+        "IaC code review and cleanup"
+      ]
+    },
+    "devsecops": {
+      "intro": "We turn delivery into a governed workflow with automated checks, secret handling, release approvals, and traceability.",
+      "challengeTitle": "Problems we solve",
+      "challengePoints": [
+        "Security checks happen too late",
+        "Secrets and approvals are handled inconsistently",
+        "Deployments depend on manual steps"
+      ],
+      "approachTitle": "How we deliver",
+      "approachParagraphs": [
+        "We turn delivery into a governed workflow with automated checks, secret handling, deployment approvals, and traceability.",
+        "The result is a pipeline teams can trust without turning it into a bottleneck."
+      ],
+      "deliverablesTitle": "Typical deliverables",
+      "deliverables": [
+        "CI/CD reference pipelines",
+        "Secret handling patterns",
+        "Security scan integration",
+        "Approval and release model",
+        "Runbooks"
+      ],
+      "engagementTitle": "Best fit when",
+      "engagementPoints": [
+        "Pipeline modernization",
+        "Supply-chain hardening",
+        "Release automation",
+        "Shift-left security"
+      ]
+    },
+    "cloud-security": {
+      "intro": "We turn security into controls that actually run: identity hardening, policy enforcement, secure defaults, and practical monitoring.",
+      "challengeTitle": "Problems we solve",
+      "challengePoints": [
+        "Identity is over-permissive",
+        "Defender signals are not operationalized",
+        "Security baselines are documented but not enforced"
+      ],
+      "approachTitle": "How we deliver",
+      "approachParagraphs": [
+        "We turn security into controls that actually run: identity hardening, policy enforcement, secure defaults, and practical monitoring.",
+        "The emphasis is on reducing blast radius and making compliance repeatable."
+      ],
+      "deliverablesTitle": "Typical deliverables",
+      "deliverables": [
+        "Security baseline",
+        "Identity and access model",
+        "Policy pack",
+        "Threat monitoring model",
+        "Remediation backlog"
+      ],
+      "engagementTitle": "Best fit when",
+      "engagementPoints": [
+        "Security posture assessment",
+        "Zero Trust design",
+        "Privileged access review",
+        "Compliance alignment"
+      ]
+    },
+    "governance-finops": {
+      "intro": "We design governance that enables delivery: management groups, policy, tagging, cost visibility, and ownership boundaries.",
+      "challengeTitle": "Problems we solve",
+      "challengePoints": [
+        "Cloud spend grows faster than visibility",
+        "Tagging and ownership are inconsistent",
+        "Governance introduces friction instead of clarity"
+      ],
+      "approachTitle": "How we deliver",
+      "approachParagraphs": [
+        "We design governance that enables delivery: management groups, policy, tagging, cost visibility, and ownership boundaries.",
+        "The goal is a platform that is controlled without becoming bureaucratic."
+      ],
+      "deliverablesTitle": "Typical deliverables",
+      "deliverables": [
+        "Governance model",
+        "Cost visibility dashboard approach",
+        "Policy and tagging standards",
+        "Chargeback/showback design",
+        "Operating model"
+      ],
+      "engagementTitle": "Best fit when",
+      "engagementPoints": [
+        "FinOps assessment",
+        "Governance redesign",
+        "Cost optimization sprint",
+        "RBAC and policy cleanup"
+      ]
+    }
+  },
+  "industryDetails": {
+    "finance": {
+      "intro": "We support regulated financial environments that need control, traceability, and delivery speed at the same time.",
+      "challengeTitle": "What matters most",
+      "challengePoints": [
+        "DORA and PCI alignment",
+        "Strong identity and privileged access controls",
+        "Repeatable change management and auditability"
+      ],
+      "approachTitle": "How we adapt",
+      "approachParagraphs": [
+        "We keep governance visible, automate the evidence trail where possible, and design delivery flows that reduce exceptions.",
+        "The objective is to move quickly without creating compliance debt."
+      ],
+      "deliverablesTitle": "Typical outcomes",
+      "deliverables": [
+        "Regulated landing zone",
+        "Identity and access architecture",
+        "Control mapping and evidence flow",
+        "Operational backlog for remediation"
+      ]
+    },
+    "energy": {
+      "intro": "We design resilient platforms for energy and utilities teams that need both operational reliability and secure integration.",
+      "challengeTitle": "What matters most",
+      "challengePoints": [
+        "Operational resilience",
+        "OT/IT boundary management",
+        "Security posture and segmentation"
+      ],
+      "approachTitle": "How we adapt",
+      "approachParagraphs": [
+        "We work from the operational reality first: uptime, segmentation, recovery, and the practical constraints of mixed environments.",
+        "Architecture decisions are evaluated on resilience and clarity, not only on elegance."
+      ],
+      "deliverablesTitle": "Typical outcomes",
+      "deliverables": [
+        "Resilient network and platform design",
+        "Security segmentation model",
+        "Recovery and operational runbooks",
+        "Prioritized hardening backlog"
+      ]
+    },
+    "public-sector": {
+      "intro": "We help public-sector teams design sovereign-friendly environments with a clear view of residency, accessibility, and control.",
+      "challengeTitle": "What matters most",
+      "challengePoints": [
+        "Data residency and sovereignty constraints",
+        "Accessibility and procurement requirements",
+        "Transparent governance and documentation"
+      ],
+      "approachTitle": "How we adapt",
+      "approachParagraphs": [
+        "We keep the architecture defensible and the documentation complete so stakeholders can validate choices quickly.",
+        "The focus is on clear standards, clear ownership, and practical delivery."
+      ],
+      "deliverablesTitle": "Typical outcomes",
+      "deliverables": [
+        "Sovereign-ready reference architecture",
+        "Control and governance map",
+        "Accessibility-aware delivery plan",
+        "Implementation roadmap"
+      ]
+    },
+    "healthcare": {
+      "intro": "We support healthcare teams that need secure, interoperable platforms for patient-facing and back-office workloads.",
+      "challengeTitle": "What matters most",
+      "challengePoints": [
+        "Sensitive data handling",
+        "Interoperability with existing systems",
+        "Secure hosting and regulated AI use"
+      ],
+      "approachTitle": "How we adapt",
+      "approachParagraphs": [
+        "We design for privacy, security, and practical integration so teams can modernize without disrupting care workflows.",
+        "Where AI is involved, we keep guardrails and auditability explicit from the beginning."
+      ],
+      "deliverablesTitle": "Typical outcomes",
+      "deliverables": [
+        "Secure healthcare platform blueprint",
+        "Integration and data-flow design",
+        "Privacy and access control model",
+        "AI governance guardrails"
+      ]
+    }
+  },
+  "caseStudies": {
+    "eyebrow": "Selected work",
+    "title": "Case studies focused on measurable delivery outcomes",
+    "subtitle": "Anonymized examples of the kind of work we do across cloud, AI, and platform engineering.",
+    "items": [
+      {
+        "title": "Azure landing zone for a regulated group",
+        "sector": "Finance",
+        "challenge": "The organization had fragmented subscriptions, inconsistent policy enforcement, and slow onboarding for new teams.",
+        "approach": "We defined a standard landing zone with management groups, policy-as-code, hub-and-spoke networking, and a repeatable rollout path for new environments.",
+        "results": [
+          "Faster team onboarding with a predictable platform pattern",
+          "Clearer policy enforcement and less manual intervention",
+          "A backlog that made future migration work easier to phase"
+        ]
+      },
+      {
+        "title": "Internal AI assistant for operations",
+        "sector": "Industrial services",
+        "challenge": "Teams were spending too much time searching internal documentation and escalating simple questions to experts.",
+        "approach": "We designed a secure retrieval pipeline on top of internal knowledge sources, added evaluation criteria, and wrapped it in a controlled Azure deployment.",
+        "results": [
+          "Faster answers for recurring operational questions",
+          "Reduced escalation volume for internal support teams",
+          "A measurable quality baseline for future prompt changes"
+        ]
+      },
+      {
+        "title": "Terraform platform for multi-team delivery",
+        "sector": "Technology",
+        "challenge": "Different teams were using inconsistent module patterns, causing drift and repeated review effort.",
+        "approach": "We created a module catalog, standardized pipeline templates, and introduced review automation and working conventions across teams.",
+        "results": [
+          "More reusable infrastructure modules",
+          "Fewer avoidable changes during review",
+          "A delivery model that scaled across multiple repositories"
+        ]
+      }
+    ],
+    "closingTitle": "Need a reference relevant to your context?",
+    "closingText": "We can discuss anonymized examples under NDA or shape a discovery call around the constraints of your environment."
+  },
+  "blog": {
+    "eyebrow": "Insights",
+    "title": "Short, useful perspectives on cloud and AI delivery",
+    "subtitle": "No filler. Just notes from the field on architecture, automation, and operating production systems.",
+    "items": [
+      {
+        "title": "When AI projects fail after the demo",
+        "category": "AI Engineering",
+        "readTime": "8 min",
+        "summary": "The recurring failure mode is not model quality alone. It is missing guardrails, weak ownership, and no operational definition of success.",
+        "date": "2026-05-28",
+        "slug": "ai-projects-fail-after-demo"
+      },
+      {
+        "title": "Landing zones are a product, not a diagram",
+        "category": "Azure Architecture",
+        "readTime": "6 min",
+        "summary": "A landing zone only works when it is treated like an evolving platform with a backlog, standards, and explicit ownership.",
+        "date": "2026-05-18",
+        "slug": "landing-zones-are-a-product"
+      },
+      {
+        "title": "What good IaC industrialization looks like",
+        "category": "IaC",
+        "readTime": "7 min",
+        "summary": "The goal is not just more Terraform or Bicep. It is a system where modules, review, and release flow are predictable across teams.",
+        "date": "2026-05-08",
+        "slug": "good-iac-industrialization"
+      }
+    ],
+    "cta": "Follow us on LinkedIn for more updates"
+  },
   "contact": {
     "title": "Let's talk about your project",
     "subtitle": "Cloud project, architecture question, security review, or exploring how AI can transform your processes? Describe your context — we respond within 24 business hours.",
+    "process": {
+      "title": "What happens next",
+      "steps": [
+        {
+          "title": "1. Initial review",
+          "description": "We read your request, identify the main constraints, and decide whether a call or a written response is the fastest next step."
+        },
+        {
+          "title": "2. Short discovery call",
+          "description": "If it is relevant, we book a focused conversation to clarify scope, timing, and decision criteria."
+        },
+        {
+          "title": "3. Proposed next step",
+          "description": "You receive a practical recommendation: a review, a sprint, an advisory retainer, or a no-go if we are not the right fit."
+        }
+      ]
+    },
     "form": {
       "firstName": "First name",
       "lastName": "Last name",

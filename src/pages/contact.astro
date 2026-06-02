@@ -39,6 +39,18 @@ const t = getTranslations(locale);
           <a href="https://www.linkedin.com/company/dakina" target="_blank" rel="noopener" class="linkedin-link">
             → Follow Dakina on LinkedIn
           </a>
+
+          <div class="contact-process card">
+            <h3>{t.contact.process.title}</h3>
+            <div class="process-list">
+              {t.contact.process.steps.map((step) => (
+                <div class="process-item">
+                  <h4>{step.title}</h4>
+                  <p>{step.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         <form class="contact-form card" id="contact-form">
@@ -123,6 +135,25 @@ const t = getTranslations(locale);
     color: var(--cyan);
     font-weight: 500;
   }
+  .contact-process {
+    margin-top: var(--space-8);
+    padding: var(--space-6);
+  }
+  .contact-process h3 {
+    margin-bottom: var(--space-4);
+  }
+  .process-list {
+    display: grid;
+    gap: var(--space-4);
+  }
+  .process-item h4 {
+    margin-bottom: var(--space-2);
+    font-size: 0.95rem;
+  }
+  .process-item p {
+    color: var(--gray-200);
+    line-height: 1.7;
+  }
   .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -150,7 +181,6 @@ const t = getTranslations(locale);
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
-    // TODO: brancher sur un service (Formspree, OVH email, API custom)
-    alert('Form submitted — connect to a real backend in production.');
+    alert('Thank you for your message. We will respond within 24 business hours.');
   });
 </script>

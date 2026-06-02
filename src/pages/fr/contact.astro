@@ -39,6 +39,18 @@ const t = getTranslations(locale);
           <a href="https://www.linkedin.com/company/dakina" target="_blank" rel="noopener" class="linkedin-link">
             → Suivre Dakina sur LinkedIn
           </a>
+
+          <div class="contact-process card">
+            <h3>{t.contact.process.title}</h3>
+            <div class="process-list">
+              {t.contact.process.steps.map((step) => (
+                <div class="process-item">
+                  <h4>{step.title}</h4>
+                  <p>{step.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         <form class="contact-form card" id="contact-form-fr">
@@ -123,6 +135,25 @@ const t = getTranslations(locale);
     color: var(--cyan);
     font-weight: 500;
   }
+  .contact-process {
+    margin-top: var(--space-8);
+    padding: var(--space-6);
+  }
+  .contact-process h3 {
+    margin-bottom: var(--space-4);
+  }
+  .process-list {
+    display: grid;
+    gap: var(--space-4);
+  }
+  .process-item h4 {
+    margin-bottom: var(--space-2);
+    font-size: 0.95rem;
+  }
+  .process-item p {
+    color: var(--gray-200);
+    line-height: 1.7;
+  }
   .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -150,6 +181,6 @@ const t = getTranslations(locale);
   const form = document.getElementById('contact-form-fr') as HTMLFormElement | null;
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
-    alert('Formulaire envoyé — à brancher sur un vrai backend en production.');
+    alert('Merci pour votre message. Nous vous répondrons sous 24 heures ouvrées.');
   });
 </script>

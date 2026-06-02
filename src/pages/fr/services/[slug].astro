@@ -14,12 +14,13 @@ export async function getStaticPaths() {
 const { service } = Astro.props;
 const locale = 'fr';
 const t = getTranslations(locale);
+const detail = (t.serviceDetails as Record<string, any>)[service.slug];
 ---
 
 <PageLayout locale={locale} title={service.title} description={service.shortDescription}>
   <section class="section page-header">
     <div class="container">
-      <a href="/fr/services" class="back-link">← {t.common.back}</a>
+      <a href="/fr/services" class="back-link">← {t.common.back} {t.nav.services.toLowerCase()}</a>
       <span class="service-icon">{service.icon}</span>
       <h1>{service.title}</h1>
       <p class="lead">{service.shortDescription}</p>
@@ -33,28 +34,37 @@ const t = getTranslations(locale);
     <div class="container">
       <div class="content-grid">
         <div class="content-main">
-          <h2>Notre approche</h2>
-          <p>
-            Page en cours d'enrichissement — le contenu détaillé du service <strong>{service.title}</strong>
-            sera complété prochainement. Chaque page service comportera les sections suivantes :
-          </p>
+          <p class="detail-intro">{detail.intro}</p>
+
+          <h2>{detail.challengeTitle}</h2>
           <ul class="content-list">
-            <li><strong>Le problème que nous résolvons</strong> — les points de douleur concrets adressés.</li>
-            <li><strong>Notre approche de livraison</strong> — méthodologie, outillage, livrables.</li>
-            <li><strong>Ce que vous obtenez</strong> — résultats tangibles, documentation, transfert de compétences.</li>
-            <li><strong>Formats d'engagement types</strong> — sprint, advisory, partenariat long terme.</li>
-            <li><strong>Études de cas associées</strong> — quand disponibles.</li>
+            {detail.challengePoints.map((point: string) => (
+              <li>{point}</li>
+            ))}
           </ul>
+
+          <h2>{detail.approachTitle}</h2>
+          {detail.approachParagraphs.map((paragraph: string) => (
+            <p>{paragraph}</p>
+          ))}
         </div>
 
         <aside class="content-sidebar">
           <div class="card">
-            <h4 class="card-title">Formats d'engagement</h4>
+            <h4 class="card-title">{detail.deliverablesTitle}</h4>
             <ul class="sidebar-list">
-              <li>Advisory sprint (2–4 semaines)</li>
-              <li>Projet à périmètre fixe</li>
-              <li>Partenariat long terme</li>
-              <li>Revue stratégique</li>
+              {detail.deliverables.map((item: string) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="card" style="margin-top: 20px;">
+            <h4 class="card-title">{detail.engagementTitle}</h4>
+            <ul class="sidebar-list">
+              {detail.engagementPoints.map((item: string) => (
+                <li>{item}</li>
+              ))}
             </ul>
           </div>
 
@@ -76,60 +86,36 @@ const t = getTranslations(locale);
 </PageLayout>
 
 <style>
-  .page-header {
-    padding-top: var(--space-12);
-    padding-bottom: var(--space-8);
+  .page-header { padding-top: var(--space-12); padding-bottom: var(--space-8); }
+  .back-link { display: inline-block; color: var(--gray-300); font-size: 0.9rem; margin-bottom: var(--space-6); }
+  .back-link:hover { color: var(--cyan); }
+  .service-icon { display: inline-block; font-size: 3rem; margin-bottom: var(--space-4); }
+  .page-header h1 { margin-bottom: var(--space-4); }
+  .lead { font-size: 1.25rem; color: var(--gray-200); max-width: 720px; line-height: 1.6; }
+  .detail-intro {
+    color: var(--gray-100);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: var(--space-8);
   }
-
-  .back-link {
-    display: inline-block;
-    color: var(--gray-300);
-    font-size: 0.9rem;
-    margin-bottom: var(--space-6);
-  }
-
-  .back-link:hover {
-    color: var(--cyan);
-  }
-
-  .service-icon {
-    display: inline-block;
-    font-size: 3rem;
-    margin-bottom: var(--space-4);
-  }
-
-  .page-header h1 {
-    margin-bottom: var(--space-4);
-  }
-
-  .lead {
-    font-size: 1.25rem;
-    color: var(--gray-200);
-    max-width: 720px;
-    line-height: 1.6;
-  }
-
   .content-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: var(--space-12);
   }
-
   .content-main h2 {
     margin-bottom: var(--space-6);
+    margin-top: var(--space-10);
   }
-
+  .content-main h2:first-of-type {
+    margin-top: 0;
+  }
   .content-main p {
     color: var(--gray-200);
     margin-bottom: var(--space-6);
     line-height: 1.8;
   }
-
-  .content-list {
-    margin-top: var(--space-4);
-    padding-left: 0;
-  }
-
+  .content-list { margin-top: var(--space-4); padding-left: 0; }
   .content-list li {
     color: var(--gray-200);
     margin-bottom: var(--space-3);
@@ -137,28 +123,22 @@ const t = getTranslations(locale);
     position: relative;
     line-height: 1.7;
   }
-
   .content-list li::before {
     content: '→';
     position: absolute;
     left: 0;
     color: var(--cyan);
   }
-
   .sidebar-list li {
     padding: 8px 0;
     color: var(--gray-200);
     font-size: 0.95rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
-
   .sidebar-list li:last-child {
     border-bottom: none;
   }
-
   @media (max-width: 900px) {
-    .content-grid {
-      grid-template-columns: 1fr;
-    }
+    .content-grid { grid-template-columns: 1fr; }
   }
 </style>

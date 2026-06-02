@@ -7,59 +7,59 @@ const locale = 'en';
 const t = getTranslations(locale);
 ---
 
-<PageLayout locale={locale} title={t.nav.about}>
+<PageLayout locale={locale} title={t.nav.about} description={t.about.subtitle}>
   <section class="section page-header">
     <div class="container">
-      <span class="section-label">About Dakina</span>
-      <h1>A senior consultancy, intentionally built different</h1>
-      <p class="section-subtitle">
-        Dakina is a cloud and AI engineering consultancy founded on a simple premise: senior expertise,
-        delivered end-to-end, with no layered teams between you and the people doing the work.
-      </p>
+      <span class="section-label">{t.about.eyebrow}</span>
+      <h1>{t.about.title}</h1>
+      <p class="section-subtitle">{t.about.subtitle}</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <div class="about-grid">
-        <div class="about-content">
-          <h2>Why Dakina exists</h2>
-          <p>
-            The cloud and AI consulting market is saturated with two extremes: large firms with deep
-            methodology but distant senior expertise, and freelancers strong on delivery but limited in scope.
-          </p>
-          <p>
-            Dakina sits in between, intentionally. We bring the rigor of an enterprise consultancy with
-            the proximity and accountability of a boutique. The person scoping your engagement is the
-            person delivering it.
-          </p>
+      <div class="about-content">
+        {t.about.sections.map((section) => (
+          <article class="card about-block">
+            <h2>{section.title}</h2>
+            {section.paragraphs.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+            {section.bullets && (
+              <ul class="content-list">
+                {section.bullets.map((bullet) => (
+                  <li>{bullet}</li>
+                ))}
+              </ul>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
 
-          <h2>What we do</h2>
-          <p>
-            We work on Azure architecture, AI-native engineering, IaC industrialization, DevSecOps,
-            cloud security, and governance. We cover the full lifecycle — from strategic advisory
-            to hands-on implementation — at senior level only.
-          </p>
-          <p>
-            AI is not just a service line for us. We use Claude and agentic tooling inside our own
-            delivery to generate IaC modules, review code, produce documentation. It's how we work,
-            not what we sell.
-          </p>
+  <section class="section">
+    <div class="container">
+      <span class="section-label">Principles</span>
+      <div class="grid grid-2 principle-grid">
+        {t.about.principles.map((principle) => (
+          <div class="card principle-card">
+            <h3 class="card-title">{principle.title}</h3>
+            <p class="card-description">{principle.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-          <h2>Where we operate</h2>
-          <p>
-            Based in France, we operate across France, Morocco, Saudi Arabia, and the UAE. Our team
-            is Arabic-speaking, and we adapt our business practices to regional context when relevant —
-            including halal-compliant arrangements on request.
-          </p>
-
-          <h2>Our certifications and partnerships</h2>
-          <ul class="content-list">
-            <li>Microsoft Azure certified: AZ-305, AZ-500, AZ-104</li>
-            <li>Anthropic Claude Partner Network member</li>
-            <li>Microsoft Partner Network (in progress)</li>
-          </ul>
+  <section class="section">
+    <div class="container">
+      <div class="card about-cta">
+        <div>
+          <h3>{t.cta.title}</h3>
+          <p>{t.cta.subtitle}</p>
         </div>
+        <a href="/contact" class="btn btn-primary">{t.cta.button} →</a>
       </div>
     </div>
   </section>
@@ -69,10 +69,26 @@ const t = getTranslations(locale);
 
 <style>
   .page-header { padding-top: var(--space-16); padding-bottom: var(--space-8); }
-  .about-content h2 { margin-top: var(--space-12); margin-bottom: var(--space-4); }
-  .about-content h2:first-child { margin-top: 0; }
-  .about-content p { color: var(--gray-200); margin-bottom: var(--space-4); line-height: 1.8; max-width: 760px; }
+  .about-content {
+    display: grid;
+    gap: var(--space-6);
+  }
+  .about-block h2 { margin-bottom: var(--space-4); }
+  .about-block p { color: var(--gray-200); margin-bottom: var(--space-4); line-height: 1.8; max-width: 760px; }
   .content-list { margin-top: var(--space-4); padding-left: 0; }
   .content-list li { color: var(--gray-200); margin-bottom: var(--space-3); padding-left: 24px; position: relative; line-height: 1.7; }
   .content-list li::before { content: '→'; position: absolute; left: 0; color: var(--cyan); }
+  .principle-card { min-height: 100%; }
+  .about-cta {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-6);
+    flex-wrap: wrap;
+  }
+  .about-cta p {
+    color: var(--gray-200);
+    max-width: 720px;
+    margin: var(--space-3) 0 0;
+  }
 </style>

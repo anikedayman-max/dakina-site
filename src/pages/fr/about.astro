@@ -7,60 +7,59 @@ const locale = 'fr';
 const t = getTranslations(locale);
 ---
 
-<PageLayout locale={locale} title={t.nav.about}>
+<PageLayout locale={locale} title={t.nav.about} description={t.about.subtitle}>
   <section class="section page-header">
     <div class="container">
-      <span class="section-label">À propos de Dakina</span>
-      <h1>Un cabinet de conseil senior, construit autrement</h1>
-      <p class="section-subtitle">
-        Dakina est un cabinet de conseil en cloud et ingénierie IA fondé sur un principe simple :
-        expertise senior, livraison de bout en bout, sans couche d'équipe entre vous et les personnes qui font le travail.
-      </p>
+      <span class="section-label">{t.about.eyebrow}</span>
+      <h1>{t.about.title}</h1>
+      <p class="section-subtitle">{t.about.subtitle}</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <div class="about-grid">
-        <div class="about-content">
-          <h2>Pourquoi Dakina existe</h2>
-          <p>
-            Le marché du conseil cloud et IA est saturé par deux extrêmes : les grandes firmes avec une
-            méthodologie solide mais une expertise senior distante, et les freelances forts en livraison
-            mais limités en envergure.
-          </p>
-          <p>
-            Dakina se positionne entre les deux, volontairement. Nous apportons la rigueur d'un cabinet
-            d'entreprise avec la proximité et la responsabilisation d'une boutique. La personne qui cadre
-            votre mission est celle qui la livre.
-          </p>
+      <div class="about-content">
+        {t.about.sections.map((section) => (
+          <article class="card about-block">
+            <h2>{section.title}</h2>
+            {section.paragraphs.map((paragraph) => (
+              <p>{paragraph}</p>
+            ))}
+            {section.bullets && (
+              <ul class="content-list">
+                {section.bullets.map((bullet) => (
+                  <li>{bullet}</li>
+                ))}
+              </ul>
+            )}
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
 
-          <h2>Ce que nous faisons</h2>
-          <p>
-            Nous intervenons sur l'architecture Azure, l'ingénierie IA, l'industrialisation IaC, le
-            DevSecOps, la sécurité cloud et la gouvernance. Nous couvrons l'ensemble du cycle de vie —
-            du conseil stratégique à l'implémentation — uniquement au niveau senior.
-          </p>
-          <p>
-            L'IA n'est pas pour nous une ligne de service comme une autre. Nous utilisons Claude et
-            l'outillage agentique dans notre propre livraison pour générer des modules IaC, reviewer le
-            code, produire la documentation. C'est notre mode de fonctionnement, pas ce que nous vendons.
-          </p>
+  <section class="section">
+    <div class="container">
+      <span class="section-label">Principes</span>
+      <div class="grid grid-2 principle-grid">
+        {t.about.principles.map((principle) => (
+          <div class="card principle-card">
+            <h3 class="card-title">{principle.title}</h3>
+            <p class="card-description">{principle.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
 
-          <h2>Où nous intervenons</h2>
-          <p>
-            Basés en France, nous intervenons en France, au Maroc, en Arabie Saoudite et aux Émirats.
-            Notre équipe est arabophone, et nous adaptons nos pratiques au contexte régional —
-            y compris des arrangements conformes aux principes halal sur demande.
-          </p>
-
-          <h2>Nos certifications et partenariats</h2>
-          <ul class="content-list">
-            <li>Certifications Microsoft Azure : AZ-305, AZ-500, AZ-104</li>
-            <li>Membre du Anthropic Claude Partner Network</li>
-            <li>Microsoft Partner Network (en cours)</li>
-          </ul>
+  <section class="section">
+    <div class="container">
+      <div class="card about-cta">
+        <div>
+          <h3>{t.cta.title}</h3>
+          <p>{t.cta.subtitle}</p>
         </div>
+        <a href="/fr/contact" class="btn btn-primary">{t.cta.button} →</a>
       </div>
     </div>
   </section>
@@ -70,10 +69,26 @@ const t = getTranslations(locale);
 
 <style>
   .page-header { padding-top: var(--space-16); padding-bottom: var(--space-8); }
-  .about-content h2 { margin-top: var(--space-12); margin-bottom: var(--space-4); }
-  .about-content h2:first-child { margin-top: 0; }
-  .about-content p { color: var(--gray-200); margin-bottom: var(--space-4); line-height: 1.8; max-width: 760px; }
+  .about-content {
+    display: grid;
+    gap: var(--space-6);
+  }
+  .about-block h2 { margin-bottom: var(--space-4); }
+  .about-block p { color: var(--gray-200); margin-bottom: var(--space-4); line-height: 1.8; max-width: 760px; }
   .content-list { margin-top: var(--space-4); padding-left: 0; }
   .content-list li { color: var(--gray-200); margin-bottom: var(--space-3); padding-left: 24px; position: relative; line-height: 1.7; }
   .content-list li::before { content: '→'; position: absolute; left: 0; color: var(--cyan); }
+  .principle-card { min-height: 100%; }
+  .about-cta {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-6);
+    flex-wrap: wrap;
+  }
+  .about-cta p {
+    color: var(--gray-200);
+    max-width: 720px;
+    margin: var(--space-3) 0 0;
+  }
 </style>
