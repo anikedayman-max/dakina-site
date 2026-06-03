@@ -1,0 +1,137 @@
+<canvas id="particle-canvas"></canvas>
+
+<style>
+  #particle-canvas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+  }
+</style>
+
+<script>
+  (function () {
+    const canvas = document.getElementById('particle-canvas');
+    if (!(canvas instanceof HTMLCanvasElement)) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    let w = 0;
+    let h = 0;
+    let particles: Array<{
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      r: number;
+      a: number;
+      bright: boolean;
+    }> = [];
+    let raf = 0;
+    let time = 0;
+
+    function resize() {
+      w = canvas.clientWidth;
+      h = canvas.clientHeight;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
+      seed();
+    }
+
+    function seed() {
+      const n = Math.min(Math.floor((w * h) / 12000), 160);
+      particles = [];
+      for (let i = 0; i < n; i++) {
+        const bright = Math.random() < 0.08;
+        particles.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 0.45,
+          vy: (Math.random() - 0.5) * 0.45,
+          r: bright ? Math.random() * 2.5 + 1.5 : Math.random() * 1.8 + 0.5,
+          a: bright ? 0.7 : Math.random() * 0.45 + 0.12,
+          bright,
+        });
+      }
+    }
+
+    function frame() {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, w, h);
+      const len = particles.length;
+      const limit = 155;
+      const limit2 = limit * limit;
+      time += 0.003;
+
+      for (let i = 0; i < len; i++) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < -10) p.x += w + 20;
+        else if (p.x > w + 10) p.x -= w + 20;
+        if (p.y < -10) p.y += h + 20;
+        else if (p.y > h + 10) p.y -= h + 20;
+
+        for (let j = i + 1; j < len; j++) {
+          const q = particles[j];
+          const dx = p.x - q.x;
+          const dy = p.y - q.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < limit2) {
+            const alpha = (1 - Math.sqrt(d2) / limit) * 0.16;
+            ctx.strokeStyle = 'rgba(0,212,255,' + alpha + ')';
+            ctx.lineWidth = 0.7;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.stroke();
+          }
+        }
+
+        const pulseA = p.bright
+          ? p.a + Math.sin(time * 4 + p.x * 0.01) * 0.2
+          : p.a;
+        const pulseR = p.bright
+          ? p.r + Math.sin(time * 3 + p.y * 0.01) * 0.6
+          : p.r;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, Math.max(pulseR, 0.3), 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(0,212,255,' + Math.max(pulseA, 0) + ')';
+        ctx.fill();
+
+        if (p.bright) {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, pulseR * 3, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(0,212,255,' + (pulseA * 0.12) + ')';
+          ctx.fill();
+        }
+      }
+
+      raf = requestAnimationFrame(frame);
+    }
+
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function start() {
+      cancelAnimationFrame(raf);
+      resize();
+      if (!mq.matches) frame();
+    }
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) cancelAnimationFrame(raf);
+      else if (!mq.matches) frame();
+    });
+
+    window.addEventListener('resize', () => {
+      cancelAnimationFrame(raf);
+      resize();
+      if (!mq.matches) frame();
+    });
+
+    start();
+  })();
+</script>

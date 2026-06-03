@@ -31,8 +31,7 @@ const contactHref = locale === 'en' ? '/contact' : '/fr/contact';
 <header class="site-header">
   <div class="container header-inner">
     <a href={homeHref} class="logo-link" aria-label="Dakina home">
-      <img src="/logo.png" alt="Dakina Consulting" class="logo" />
-      <span class="logo-text">DAKINA<span class="logo-text-light">Consulting</span></span>
+      <img src="/logo.svg" alt="Dakina Consulting" class="logo" />
     </a>
 
     <nav class="main-nav" aria-label="Main">
@@ -49,8 +48,11 @@ const contactHref = locale === 'en' ? '/contact' : '/fr/contact';
       <a href={otherLocalePath} class="lang-switch" aria-label={`Switch to ${otherLocale === 'en' ? 'English' : 'Français'}`}>
         {otherLocale.toUpperCase()}
       </a>
-      <a href={contactHref} class="btn btn-primary btn-header">
+      <a href={contactHref} class="btn btn-secondary btn-header">
         {t.nav.contact}
+      </a>
+      <a href={contactHref} class="btn btn-primary btn-header">
+        {t.nav.bookCall} →
       </a>
       <button class="mobile-toggle" aria-label="Toggle menu" id="mobile-toggle">
         <span></span>
@@ -66,17 +68,17 @@ const contactHref = locale === 'en' ? '/contact' : '/fr/contact';
       {localizedNav.map((item) => (
         <li><a href={item.href}>{item.label}</a></li>
       ))}
-      <li><a href={contactHref} class="mobile-cta">{t.nav.contact}</a></li>
+      <li><a href={contactHref}>{t.nav.contact}</a></li>
+      <li><a href={contactHref} class="mobile-cta">{t.nav.bookCall} →</a></li>
     </ul>
   </div>
 </header>
 
 <style>
   .site-header {
-    position: sticky;
-    top: 0;
+    position: relative;
     z-index: var(--z-nav);
-    background: rgba(4, 16, 31, 0.85);
+    background: rgba(4, 16, 31, 0.6);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -86,8 +88,8 @@ const contactHref = locale === 'en' ? '/contact' : '/fr/contact';
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 16px;
-    padding-bottom: 16px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     gap: 32px;
   }
 
@@ -99,23 +101,8 @@ const contactHref = locale === 'en' ? '/contact' : '/fr/contact';
   }
 
   .logo {
-    width: 38px;
-    height: 38px;
-    border-radius: 8px;
-  }
-
-  .logo-text {
-    font-family: var(--font-head);
-    font-weight: 800;
-    font-size: 1.05rem;
-    letter-spacing: 0.02em;
-    color: var(--white);
-  }
-
-  .logo-text-light {
-    font-weight: 400;
-    color: var(--gray-300);
-    margin-left: 4px;
+    height: 44px;
+    width: auto;
   }
 
   .main-nav {

@@ -32,11 +32,10 @@ const companyLinks = [
     <div class="footer-grid">
       <div class="footer-brand">
         <a href={base || '/'} class="logo-link">
-          <img src="/logo.png" alt="Dakina" class="footer-logo" />
-          <span class="footer-name">DAKINA<span class="footer-name-light">Consulting</span></span>
+          <img src="/logo.svg" alt="Dakina Consulting" class="footer-logo" />
         </a>
         <p class="footer-description">{t.footer.description}</p>
-        <a href="https://www.linkedin.com/company/dakina" target="_blank" rel="noopener" class="footer-social">
+        <a href="https://www.linkedin.com/company/dakina-consulting" target="_blank" rel="noopener" class="footer-social">
           → LinkedIn
         </a>
       </div>
@@ -103,22 +102,8 @@ const companyLinks = [
   }
 
   .footer-logo {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
-  }
-
-  .footer-name {
-    font-family: var(--font-head);
-    font-weight: 800;
-    font-size: 1rem;
-    color: var(--white);
-  }
-
-  .footer-name-light {
-    font-weight: 400;
-    color: var(--gray-300);
-    margin-left: 4px;
+    height: 100px;
+    width: auto;
   }
 
   .footer-description {

@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import ParticleCanvas from '../components/ParticleCanvas.astro';
 import { getTranslations, type Locale } from '../i18n/utils';
 
 interface Props {
@@ -56,13 +57,13 @@ const ogImage = '/og-image.png';
       url: 'https://dakina-consulting.fr',
       logo: 'https://dakina-consulting.fr/logo.png',
       description: t.site.description,
-      email: 'contact@dakina-consulting.fr',
+      email: 'contact@dakina.fr',
       address: {
         '@type': 'PostalAddress',
         addressCountry: 'FR'
       },
       areaServed: ['FR', 'SA', 'AE', 'MA'],
-      sameAs: ['https://www.linkedin.com/company/dakina']
+      sameAs: ['https://www.linkedin.com/company/dakina-consulting']
     })} />
 
     <!-- Fonts -->
@@ -77,6 +78,22 @@ const ogImage = '/og-image.png';
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
   <body>
+    <ParticleCanvas />
     <slot />
+
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
+      );
+      document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    </script>
   </body>
 </html>

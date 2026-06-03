@@ -12,25 +12,11 @@ const base = locale === 'en' ? '' : '/fr';
 
 <section class="hero">
   <div class="hero-glow"></div>
-  <div class="hero-orb hero-orb-a"></div>
-  <div class="hero-orb hero-orb-b"></div>
-  <div class="hero-grid"></div>
+  <div class="hero-glow-b"></div>
+  <div class="hero-glow-c"></div>
+  <img src="/logo.svg" alt="" class="hero-logo-bg" aria-hidden="true" />
+
   <div class="container hero-inner">
-    <div class="hero-brand">
-      <img src="/logo.png" alt="Dakina Consulting" class="hero-logo" />
-      <div class="hero-brand-copy">
-        <span class="hero-brand-name">DAKINA</span>
-        <span class="hero-brand-subtitle">Consulting</span>
-      </div>
-    </div>
-
-    <div class="hero-pills">
-      {t.hero.pills.map((pill) => (
-        <span class="hero-pill">{pill}</span>
-      ))}
-    </div>
-
-    <span class="section-label">{t.hero.label}</span>
     <h1 class="hero-title">{t.hero.title}</h1>
     <p class="hero-subtitle">{t.hero.subtitle}</p>
 
@@ -44,193 +30,156 @@ const base = locale === 'en' ? '' : '/fr';
 <style>
   .hero {
     position: relative;
-    padding: var(--space-24) 0 var(--space-20);
+    min-height: 94vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-20) 0 var(--space-16);
     overflow: hidden;
   }
 
+  /* ---- Glow orbs ---- */
   .hero-glow {
     position: absolute;
-    top: -220px;
+    top: -280px;
     left: 50%;
     transform: translateX(-50%);
-    width: 920px;
-    height: 920px;
+    width: 1000px;
+    height: 1000px;
     background:
-      radial-gradient(circle at center, rgba(0, 212, 255, 0.22) 0%, rgba(0, 212, 255, 0.08) 24%, transparent 62%),
-      radial-gradient(circle at 30% 35%, rgba(26, 107, 255, 0.18), transparent 42%);
-    filter: blur(10px);
+      radial-gradient(circle at center, rgba(0, 212, 255, 0.28) 0%, rgba(0, 212, 255, 0.1) 22%, transparent 54%),
+      radial-gradient(circle at 35% 40%, rgba(26, 107, 255, 0.22), transparent 38%);
+    filter: blur(6px);
     pointer-events: none;
     z-index: 0;
-    animation: glowPulse 12s ease-in-out infinite alternate;
+    animation: glowPulse 10s ease-in-out infinite alternate;
   }
 
-  .hero-orb {
+  .hero-glow-b {
     position: absolute;
-    border-radius: 999px;
+    bottom: -240px;
+    right: -80px;
+    width: 700px;
+    height: 700px;
+    background: radial-gradient(circle, rgba(77, 143, 255, 0.18) 0%, transparent 55%);
+    filter: blur(30px);
     pointer-events: none;
     z-index: 0;
-    filter: blur(2px);
-    mix-blend-mode: screen;
+    animation: glowFloat 14s ease-in-out 2s infinite alternate;
   }
 
-  .hero-orb-a {
-    top: 8%;
-    left: 8%;
-    width: 180px;
-    height: 180px;
-    background: radial-gradient(circle, rgba(0, 212, 255, 0.42) 0%, rgba(0, 212, 255, 0.08) 45%, transparent 72%);
-    animation: floatOrbA 18s ease-in-out infinite alternate;
-  }
-
-  .hero-orb-b {
-    right: 10%;
-    bottom: 8%;
-    width: 220px;
-    height: 220px;
-    background: radial-gradient(circle, rgba(77, 143, 255, 0.32) 0%, rgba(77, 143, 255, 0.08) 42%, transparent 74%);
-    animation: floatOrbB 22s ease-in-out infinite alternate;
-  }
-
-  .hero-grid {
+  .hero-glow-c {
     position: absolute;
-    inset: 0;
+    top: 30%;
+    left: -120px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0, 200, 160, 0.12) 0%, transparent 55%);
+    filter: blur(40px);
     pointer-events: none;
     z-index: 0;
-    opacity: 0.18;
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-    background-size: 90px 90px;
-    mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.95), transparent 76%);
-    animation: gridDrift 28s linear infinite;
+    animation: glowFloat 18s ease-in-out 4s infinite alternate-reverse;
   }
 
+  /* ---- Logo watermark ---- */
+  .hero-logo-bg {
+    position: absolute;
+    right: 6%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 440px;
+    height: 440px;
+    object-fit: contain;
+    opacity: 0.12;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 0;
+    animation: logoFloat 22s ease-in-out infinite alternate;
+  }
+
+  /* ---- Content ---- */
   .hero-inner {
     position: relative;
     z-index: 1;
     text-align: center;
-  }
-
-  .hero-brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 16px;
-    padding: 14px 20px;
-    margin-bottom: var(--space-8);
-    border-radius: 999px;
-    background: rgba(7, 24, 40, 0.65);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
-    backdrop-filter: blur(14px);
-  }
-
-  .hero-logo {
-    width: 56px;
-    height: 56px;
-    border-radius: 16px;
-    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 18px 40px rgba(0, 212, 255, 0.12);
-  }
-
-  .hero-brand-copy {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    line-height: 1;
-  }
-
-  .hero-brand-name {
-    font-family: var(--font-head);
-    font-size: 1.2rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    color: var(--white);
-  }
-
-  .hero-brand-subtitle {
-    margin-top: 4px;
-    font-size: 0.78rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gray-300);
-  }
-
-  .hero-pills {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: var(--space-2);
-    margin-bottom: var(--space-8);
-  }
-
-  .hero-pill {
-    font-size: 0.8rem;
-    padding: 6px 14px;
-    border-radius: 20px;
-    background: rgba(0, 212, 255, 0.06);
-    color: var(--cyan);
-    border: 1px solid rgba(0, 212, 255, 0.15);
-    font-weight: 500;
+    align-items: center;
   }
 
   .hero-title {
-    max-width: 920px;
-    margin: 0 auto var(--space-6);
-    background: linear-gradient(180deg, var(--white) 0%, var(--gray-200) 100%);
+    max-width: 900px;
+    margin-bottom: var(--space-6);
+    line-height: 1.06;
+    letter-spacing: -0.035em;
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    background: linear-gradient(180deg, var(--white) 0%, var(--gray-200) 60%, var(--cyan) 140%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    animation: heroFadeUp 0.9s var(--ease) 0.25s both;
   }
 
   .hero-subtitle {
-    max-width: 720px;
-    margin: 0 auto var(--space-10);
+    max-width: 660px;
     font-size: 1.15rem;
     color: var(--gray-200);
-    line-height: 1.7;
+    line-height: 1.8;
+    margin-bottom: var(--space-10);
+    animation: heroFadeUp 0.9s var(--ease) 0.4s both;
   }
 
   .hero-ctas {
     display: flex;
-    justify-content: center;
     gap: var(--space-4);
     flex-wrap: wrap;
+    justify-content: center;
+    animation: heroFadeUp 0.9s var(--ease) 0.55s both;
+  }
+
+  /* ---- Keyframes ---- */
+  @keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   @keyframes glowPulse {
-    from {
-      transform: translateX(-50%) scale(0.98);
-      opacity: 0.92;
+    from { transform: translateX(-50%) scale(0.96); opacity: 0.85; }
+    to { transform: translateX(-50%) scale(1.08); opacity: 1; }
+  }
+
+  @keyframes glowFloat {
+    from { transform: translate3d(0, 0, 0) scale(1); }
+    to { transform: translate3d(-35px, 25px, 0) scale(1.1); }
+  }
+
+  @keyframes logoFloat {
+    from { transform: translateY(-50%) rotate(0deg) scale(1); }
+    to { transform: translateY(-50%) rotate(4deg) scale(1.04); }
+  }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 900px) {
+    .hero {
+      min-height: auto;
+      padding: var(--space-16) 0 var(--space-12);
     }
-    to {
-      transform: translateX(-50%) scale(1.04);
-      opacity: 1;
+    .hero-logo-bg {
+      width: 280px;
+      height: 280px;
+      right: -40px;
+      opacity: 0.08;
     }
   }
 
-  @keyframes floatOrbA {
-    from {
-      transform: translate3d(0, 0, 0);
+  @media (max-width: 600px) {
+    .hero-eyebrow {
+      font-size: 0.75rem;
     }
-    to {
-      transform: translate3d(18px, 22px, 0);
-    }
-  }
-
-  @keyframes floatOrbB {
-    from {
-      transform: translate3d(0, 0, 0);
-    }
-    to {
-      transform: translate3d(-24px, -18px, 0);
-    }
-  }
-
-  @keyframes gridDrift {
-    from {
-      background-position: 0 0, 0 0;
-    }
-    to {
-      background-position: 90px 90px, -90px 90px;
+    .hero-logo-bg {
+      width: 200px;
+      height: 200px;
+      opacity: 0.06;
     }
   }
 </style>

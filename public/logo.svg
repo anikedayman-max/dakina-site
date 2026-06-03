@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 -20 560 190" width="560" height="190">
+  <!-- Outer arc — large blue dots -->
+  <circle cx="148" cy="28"  r="14" fill="#1a6bff"/>
+  <circle cx="120" cy="14"  r="11" fill="#00c8a0"/>
+  <circle cx="96"  cy="18"  r="9"  fill="#4dca82"/>
+  <circle cx="26"  cy="48"  r="16" fill="#1a6bff"/>
+  <circle cx="14"  cy="80"  r="17" fill="#1a6bff"/>
+  <circle cx="22"  cy="114" r="16" fill="#1a6bff"/>
+  <circle cx="50"  cy="136" r="14" fill="#1a6bff"/>
+  <circle cx="84"  cy="147" r="15" fill="#1a6bff"/>
+  <circle cx="118" cy="146" r="14" fill="#1a6bff"/>
+  <circle cx="146" cy="133" r="12" fill="#1a6bff"/>
+  <circle cx="158" cy="112" r="9"  fill="#1266ee"/>
+  <circle cx="162" cy="90"  r="7"  fill="#0e5dde"/>
+  <!-- Middle ring — teals -->
+  <circle cx="108" cy="32"  r="10" fill="#00b8b0"/>
+  <circle cx="84"  cy="36"  r="9"  fill="#00c8a0"/>
+  <circle cx="62"  cy="50"  r="10" fill="#00aac8"/>
+  <circle cx="48"  cy="68"  r="11" fill="#0098d4"/>
+  <circle cx="46"  cy="96"  r="10" fill="#00a8c0"/>
+  <circle cx="58"  cy="118" r="9"  fill="#00b4aa"/>
+  <circle cx="80"  cy="128" r="10" fill="#00c0a0"/>
+  <circle cx="106" cy="128" r="9"  fill="#1a6bff"/>
+  <circle cx="126" cy="118" r="8"  fill="#1a6bff"/>
+  <!-- Inner ring — small greens -->
+  <circle cx="96"  cy="56"  r="7"  fill="#4dca82"/>
+  <circle cx="80"  cy="64"  r="6"  fill="#3dc88a"/>
+  <circle cx="70"  cy="78"  r="7"  fill="#00c8a0"/>
+  <circle cx="72"  cy="96"  r="6"  fill="#00baa8"/>
+  <circle cx="84"  cy="108" r="7"  fill="#4dca82"/>
+  <circle cx="100" cy="108" r="6"  fill="#00c0a0"/>
+  <!-- Tiny core -->
+  <circle cx="88"  cy="80"  r="4"  fill="#4dca82"/>
+  <circle cx="96"  cy="88"  r="3"  fill="#00c8a0"/>
+  <circle cx="86"  cy="95"  r="2.5" fill="#3dc88a"/>
+
+  <!-- Text: DAKINA -->
+  <text x="184" y="106"
+    font-family="Arial Black, Arial, sans-serif"
+    font-weight="900"
+    font-size="82"
+    letter-spacing="-1"
+    fill="#ffffff">DAKINA</text>
+  <!-- Text: Consulting -->
+  <text x="191" y="140"
+    font-family="Arial, Helvetica, sans-serif"
+    font-weight="400"
+    font-size="38"
+    letter-spacing="2"
+    fill="#a8b8d5">Consulting</text>
+</svg>
