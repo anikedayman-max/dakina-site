@@ -20,7 +20,12 @@
     "subtitle": "Dakina is a senior cloud and AI engineering consultancy. We work on what's hard: Azure architecture that survives production, IaC that teams maintain, AI agents that ship value beyond the demo.",
     "primaryCta": "Discuss your project",
     "secondaryCta": "Explore our services",
-    "pills": ["Microsoft Azure", "AI Engineering", "Infrastructure as Code", "DevSecOps"]
+    "pills": [
+      "Microsoft Azure",
+      "AI Engineering",
+      "Infrastructure as Code",
+      "DevSecOps"
+    ]
   },
   "valueProps": {
     "title": "What sets us apart",
@@ -35,8 +40,8 @@
         "description": "Claude and agentic tooling are part of how we generate IaC modules, review code, and produce documentation. It's how we work, not a service line."
       },
       {
-        "title": "France and MENA coverage",
-        "description": "Active across France, Morocco, Saudi Arabia and the UAE. Arabic-speaking team. Business practices adapted to regional context on request."
+        "title": "Europe, North Africa and MENA coverage",
+        "description": "Active across France, Morocco, Saudi Arabia and the UAE. Business practices adapted to regional context on request."
       },
       {
         "title": "Knowledge transfer by default",
@@ -55,42 +60,67 @@
         "icon": "☁️",
         "title": "Azure Architecture",
         "shortDescription": "Landing zones, Hub-Spoke networking, multi-subscription governance. Designs that survive 18 months of organic growth.",
-        "tags": ["Landing Zone", "CAF / ALZ", "Hub & Spoke"]
+        "tags": [
+          "Landing Zone",
+          "CAF / ALZ",
+          "Hub & Spoke"
+        ]
       },
       {
         "slug": "ai-engineering",
         "icon": "🤖",
         "title": "AI Engineering",
         "shortDescription": "Claude Code in the enterprise, AI gateways, agentic workflows, RAG pipelines. Production-grade AI, not demos.",
-        "tags": ["Claude", "Anthropic", "RAG", "Agents"]
+        "tags": [
+          "Claude",
+          "Anthropic",
+          "RAG",
+          "Agents"
+        ]
       },
       {
         "slug": "iac-industrialization",
         "icon": "⚙️",
         "title": "IaC Industrialization",
         "shortDescription": "Terraform and Bicep at scale. Module libraries, pipeline standardization, AI-augmented review and generation.",
-        "tags": ["Terraform", "Bicep", "GitOps"]
+        "tags": [
+          "Terraform",
+          "Bicep",
+          "GitOps"
+        ]
       },
       {
         "slug": "devsecops",
         "icon": "🔄",
         "title": "DevSecOps & CI/CD",
         "shortDescription": "Azure DevOps and GitHub Actions pipelines. Shift-left security, secret management, supply chain protection.",
-        "tags": ["Azure DevOps", "GitHub Actions", "Shift-Left"]
+        "tags": [
+          "Azure DevOps",
+          "GitHub Actions",
+          "Shift-Left"
+        ]
       },
       {
         "slug": "cloud-security",
         "icon": "🔐",
         "title": "Cloud Security",
         "shortDescription": "Zero Trust architectures, Microsoft Defender for Cloud, Entra ID hardening, NIS2 and ISO 27001 alignment.",
-        "tags": ["Zero Trust", "Defender", "Entra ID"]
+        "tags": [
+          "Zero Trust",
+          "Defender",
+          "Entra ID"
+        ]
       },
       {
         "slug": "governance-finops",
         "icon": "📊",
         "title": "Governance & FinOps",
         "shortDescription": "Azure Policy, RBAC at scale, tagging strategies, cost optimization. Governance that doesn't slow delivery down.",
-        "tags": ["Azure Policy", "RBAC", "FinOps"]
+        "tags": [
+          "Azure Policy",
+          "RBAC",
+          "FinOps"
+        ]
       }
     ]
   },
