@@ -1,0 +1,170 @@
+---
+import { getTranslations, type Locale } from '../i18n/utils';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getTranslations(locale);
+
+// ⚠️ Remplace par ta clé Web3Forms (web3forms.com → entre contact@dakina.fr → reçois la clé par mail)
+const WEB3FORMS_KEY = '275475a7-94be-436e-923d-5e6640d9c63a';
+---
+
+<form class="contact-form card" id={`contact-form-${locale}`} novalidate>
+  <input type="hidden" name="access_key" value={WEB3FORMS_KEY} />
+  <input type="hidden" name="subject" value="Nouveau message — Dakina Consulting" />
+  <input type="hidden" name="from_name" value="Dakina Consulting Website" />
+  <input type="hidden" name="redirect" value="false" />
+  <!-- Honeypot anti-spam -->
+  <input type="checkbox" name="botcheck" style="display:none" />
+
+  <div class="form-row">
+    <div class="form-group">
+      <label class="form-label" for={`firstName-${locale}`}>{t.contact.form.firstName} *</label>
+      <input class="form-input" type="text" id={`firstName-${locale}`} name="firstName" required />
+    </div>
+    <div class="form-group">
+      <label class="form-label" for={`lastName-${locale}`}>{t.contact.form.lastName} *</label>
+      <input class="form-input" type="text" id={`lastName-${locale}`} name="lastName" required />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label" for={`email-${locale}`}>{t.contact.form.email} *</label>
+    <input class="form-input" type="email" id={`email-${locale}`} name="email" required />
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label class="form-label" for={`company-${locale}`}>{t.contact.form.company}</label>
+      <input class="form-input" type="text" id={`company-${locale}`} name="company" />
+    </div>
+    <div class="form-group">
+      <label class="form-label" for={`role-${locale}`}>{t.contact.form.role}</label>
+      <input class="form-input" type="text" id={`role-${locale}`} name="role" />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label" for={`subject-${locale}`}>{t.contact.form.subject} *</label>
+    <select class="form-select" id={`subject-${locale}`} name="topic" required>
+      <option value="">—</option>
+      {t.contact.form.subjectOptions.map((opt) => <option value={opt}>{opt}</option>)}
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label class="form-label" for={`message-${locale}`}>{t.contact.form.message} *</label>
+    <textarea class="form-textarea" id={`message-${locale}`} name="message" required></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary form-submit" id={`submit-btn-${locale}`}>
+    {t.contact.form.submit} →
+  </button>
+
+  <p class="form-privacy">{t.contact.form.privacy}</p>
+
+  <!-- Success / error messages -->
+  <div class="form-success" id={`form-success-${locale}`} style="display:none">
+    <span class="success-icon">✓</span>
+    {t.contact.form.success}
+  </div>
+  <div class="form-error" id={`form-error-${locale}`} style="display:none">
+    Une erreur s'est produite. Réessaie ou écris-nous directement à contact@dakina.fr
+  </div>
+</form>
+
+<style>
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+  }
+  .form-submit {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 32px;
+    margin-top: var(--space-2);
+    transition: all var(--tr);
+  }
+  .form-submit:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+  .form-privacy {
+    margin-top: var(--space-4);
+    font-size: 0.8rem;
+    color: var(--gray-400);
+    text-align: center;
+  }
+  .form-success {
+    margin-top: var(--space-6);
+    padding: var(--space-5) var(--space-6);
+    border-radius: var(--radius);
+    background: rgba(0, 196, 122, 0.08);
+    border: 1px solid rgba(0, 196, 122, 0.25);
+    color: var(--success);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+  .success-icon {
+    font-size: 1.2rem;
+    flex-shrink: 0;
+  }
+  .form-error {
+    margin-top: var(--space-6);
+    padding: var(--space-5) var(--space-6);
+    border-radius: var(--radius);
+    background: rgba(255, 84, 112, 0.08);
+    border: 1px solid rgba(255, 84, 112, 0.25);
+    color: var(--danger);
+    font-size: 0.9rem;
+  }
+  @media (max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+
+<script define:vars={{ locale }}>
+  const form = document.getElementById(`contact-form-${locale}`);
+  const btn = document.getElementById(`submit-btn-${locale}`);
+  const successEl = document.getElementById(`form-success-${locale}`);
+  const errorEl = document.getElementById(`form-error-${locale}`);
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!(form instanceof HTMLFormElement)) return;
+
+    btn.disabled = true;
+    btn.textContent = '…';
+    successEl.style.display = 'none';
+    errorEl.style.display = 'none';
+
+    try {
+      const data = Object.fromEntries(new FormData(form));
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const json = await res.json();
+
+      if (json.success) {
+        successEl.style.display = 'flex';
+        form.reset();
+      } else {
+        throw new Error(json.message);
+      }
+    } catch {
+      errorEl.style.display = 'block';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = locale === 'fr' ? 'Envoyer →' : 'Send →';
+    }
+  });
+</script>
